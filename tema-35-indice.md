@@ -49,7 +49,7 @@
    5.2. Protocolo HTTPS
    5.2.1. Funcionamiento de HTTP sobre TLS
 
-6. **Seguridad y normativa en la Administración Pública**
+6. **Seguridad y normativa en la Administración Pública (material complementario)**
    6.1. Requisitos de seguridad en servicios web públicos
    6.1.1. Esquema Nacional de Seguridad y sedes electrónicas
 

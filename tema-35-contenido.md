@@ -877,6 +877,8 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 ---
 ## 6. Seguridad y normativa en la Administración Pública
 
+> **Material complementario.** El enunciado oficial de este tema no nombra este apartado. Se mantiene porque sitúa la materia en el Ayuntamiento y en la normativa que le aplica, pero lo exigible es lo que enumera el título del tema.
+
 ### 6.1. Requisitos de seguridad en servicios web públicos
 
 #### 6.1.1. Esquema Nacional de Seguridad y sedes electrónicas
