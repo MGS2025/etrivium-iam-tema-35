@@ -38,7 +38,7 @@
 ## D1 · De ARPANET a la Internet actual: línea del tiempo
 
 **Sección**: §1.1.1 — De ARPANET a la consolidación de la pila TCP/IP · §1.1.2
-**Propósito**: Fijar en tres etapas las fechas que se preguntan literalmente, separando el nacimiento de la **red** (1969-1983) del nacimiento de la **Web** (1989-1993), que es la confusión más penalizada del tema.
+**Propósito**: Fijar en tres etapas las fechas clave, separando el nacimiento de la **red** (1969-1983) del nacimiento de la **Web** (1989-1993), que es la confusión más penalizada del tema.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 356" role="img" aria-label="Línea del tiempo de Internet en tres etapas: la red de investigación de 1969 a 1983 con ARPANET, el protocolo TCP de Cerf y Kahn y el día de la bandera de 1983; la etapa de la Web de 1983 a 1995 con el DNS, la World Wide Web del CERN, el navegador Mosaic y la privatización de NSFNET; y la etapa de madurez con el agotamiento de IPv4, HTTP dos y tres, TLS uno punto tres y la superación del cincuenta por ciento de IPv6 en 2026">
@@ -71,7 +71,7 @@
 ## D2 · Quién gobierna qué en Internet
 
 **Sección**: §1.2.1 — Organismos internacionales de regulación
-**Propósito**: Separar los tres bloques de competencias —identificadores, estándares y otros ámbitos— para responder la pregunta típica de «qué organismo hace qué», e incorporar la transición IANA de 2016.
+**Propósito**: Separar los tres bloques de competencias —identificadores, estándares y otros ámbitos— para responder a «qué organismo hace qué», e incorporar la transición IANA de 2016.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 372" role="img" aria-label="Mapa de la gobernanza de Internet en tres bloques: identificadores únicos gestionados por ICANN, la función IANA operada por PTI desde 2016 y los cinco registros regionales; estándares elaborados por el IETF bajo supervisión del IAB y el IESG dentro de la Internet Society; y otros ámbitos como el W3C para la Web, el IEEE para las capas físicas, la ITU-T y el foro de gobernanza de Internet, que no adopta decisiones vinculantes">
@@ -106,7 +106,7 @@
 ## D3 · El camino de un estándar: del Internet-Draft al STD
 
 **Sección**: §1.2.2 — Proceso de estandarización técnica y documentos RFC
-**Propósito**: Mostrar el recorrido de un documento del IETF y, sobre todo, fijar las dos reglas que se preguntan: el borrador caduca a los seis meses y el RFC publicado es inmutable.
+**Propósito**: Mostrar el recorrido de un documento del IETF y, sobre todo, fijar las dos reglas clave: el borrador caduca a los seis meses y el RFC publicado es inmutable.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 356" role="img" aria-label="Camino de un estándar del IETF: un Internet-Draft que caduca a los seis meses es adoptado por un grupo de trabajo, pasa la última llamada y la aprobación del IESG y se publica como RFC con número inmutable; categorías de RFC: Standards Track con los escalones Proposed Standard e Internet Standard con número STD, Best Current Practice, Informational, Experimental e Historic">
@@ -142,7 +142,7 @@
 ## D4 · Pila TCP/IP frente al modelo OSI
 
 **Sección**: §2.1.1 — Pila TCP/IP y correspondencia con el modelo OSI
-**Propósito**: Fijar la correspondencia exacta entre las siete capas de OSI y las cuatro de TCP/IP, con los protocolos y la PDU de cada nivel. Es la tabla de la que salen más preguntas del bloque de arquitectura.
+**Propósito**: Fijar la correspondencia exacta entre las siete capas de OSI y las cuatro de TCP/IP, con los protocolos y la PDU de cada nivel.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 372" role="img" aria-label="Comparación entre el modelo OSI de siete capas y el modelo TCP/IP de cuatro capas: aplicación, presentación y sesión de OSI se corresponden con la capa de aplicación de TCP/IP; transporte y red se corresponden una a una; enlace de datos y física se corresponden con la capa de acceso a red. Se indican los protocolos y la unidad de datos de cada nivel: mensaje, segmento o datagrama, paquete y trama">
@@ -216,7 +216,7 @@
 ## D6 · Internet como red de redes: AS, tránsito, *peering* e IXP
 
 **Sección**: §2.2.1 — Sistemas Autónomos y puntos de intercambio de tráfico
-**Propósito**: Explicar por qué el encaminamiento entre operadores es una cuestión económica antes que técnica, y distinguir tránsito de *peering*, que es la pregunta segura del epígrafe.
+**Propósito**: Explicar por qué el encaminamiento entre operadores es una cuestión económica antes que técnica, y distinguir tránsito de *peering*, que es la distinción clave del epígrafe.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 372" role="img" aria-label="Internet como red de redes: sistemas autónomos de tránsito de primer nivel que alcanzan toda la tabla global mediante acuerdos de peering, operadores de segundo nivel que compran tránsito, puntos neutros de intercambio como ESPANIX y DE-CIX Madrid donde las redes intercambian tráfico directamente, y el sistema autónomo del Ayuntamiento con su propio número y prefijo. Se compara el tránsito, que se paga y alcanza todo Internet, con el peering, que suele ser gratuito y solo alcanza las redes del otro y sus clientes">
@@ -307,7 +307,7 @@
 ## D9 · Seguridad del DNS: qué resuelve DNSSEC y qué resuelven DoT y DoH
 
 **Sección**: §2.2.3 — Sistema de Nombres de Dominio
-**Propósito**: Fijar que son **dos problemas distintos con dos soluciones distintas y complementarias**, que es exactamente lo que se pregunta con trampa.
+**Propósito**: Fijar que son **dos problemas distintos con dos soluciones distintas y complementarias**.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" role="img" aria-label="Seguridad del DNS: el problema de la autenticidad, es decir el envenenamiento de caché y las respuestas falsas, lo resuelve DNSSEC firmando las respuestas; el problema de la confidencialidad, es decir que cualquiera puede ver qué sitios se consultan, lo resuelven DNS sobre TLS en el puerto 853 y DNS sobre HTTPS en el 443. DNSSEC no cifra y DoT y DoH no autentican la zona: son complementarios">
@@ -412,7 +412,7 @@
 ## D12 · SSH: arquitectura en tres capas y métodos de autenticación
 
 **Sección**: §3.2.1 — Acceso remoto seguro
-**Propósito**: Fijar las tres capas del protocolo, los métodos de autenticación y la confianza en el primer uso, que son los tres puntos preguntables del epígrafe.
+**Propósito**: Fijar las tres capas del protocolo, los métodos de autenticación y la confianza en el primer uso, que son los tres puntos clave del epígrafe.
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 352" role="img" aria-label="Arquitectura de SSH en tres capas: la capa de transporte cifra, comprueba la integridad y autentica al servidor mediante su clave de host; la capa de autenticación de usuario admite contraseña, par de claves, certificado o Kerberos; y la capa de conexión multiplexa canales para sesión interactiva, SFTP y reenvío de puertos. Sustituye a Telnet, rlogin y rsh, que viajan en claro. La primera conexión muestra la huella del servidor bajo el modelo de confianza en el primer uso">
@@ -452,7 +452,7 @@
   <rect x="506" y="50" width="154" height="58" rx="5" fill="#2d8659"/><text x="583" y="68" text-anchor="middle" class="t13">4 · ACK</text><text x="583" y="84" text-anchor="middle" class="s13">El servidor confirma la</text><text x="583" y="97" text-anchor="middle" class="s13">concesión y su duración</text>
   <rect x="20" y="118" width="640" height="26" rx="4" fill="#fdf3e3"/>
   <text x="340" y="135" text-anchor="middle" class="d13">Renovación: al 50 % de la concesión (T1) con el mismo servidor y, si no responde, al 87,5 % (T2) con cualquiera</text>
-  <text x="20" y="166" class="k13">PIEZAS QUE SE PREGUNTAN</text>
+  <text x="20" y="166" class="k13">PIEZAS CLAVE</text>
   <rect x="20" y="174" width="312" height="44" rx="4" fill="#eef3f8"/><text x="176" y="190" text-anchor="middle" class="d13">AGENTE DE RETRANSMISIÓN</text><text x="176" y="205" text-anchor="middle" class="n13">Las difusiones no cruzan el encaminador: él reenvía la petición</text>
   <rect x="348" y="174" width="312" height="44" rx="4" fill="#eef3f8"/><text x="504" y="190" text-anchor="middle" class="d13">RESERVA POR DIRECCIÓN MAC</text><text x="504" y="205" text-anchor="middle" class="n13">Dirección estable para impresoras y servidores</text>
   <text x="20" y="240" class="k13">CONFIGURACIÓN EN IPv6 · dos vías que conviven</text>
@@ -605,7 +605,7 @@
   <text x="358" y="206" class="n17">     su parte del Diffie-Hellman efímero</text>
   <text x="358" y="220" class="n17">2 · ServerHello + certificado YA CIFRADO + Finished</text>
   <text x="358" y="234" class="n17">Reanudación posterior: 0-RTT (solo si es idempotente)</text>
-  <text x="20" y="264" class="k17">NOVEDADES DE TLS 1.3 · las tres más preguntadas de las cinco</text>
+  <text x="20" y="264" class="k17">NOVEDADES DE TLS 1.3 · tres de las cinco</text>
   <rect x="20" y="272" width="206" height="44" rx="4" fill="#2d8659"/><text x="123" y="290" text-anchor="middle" class="t17">CONFIDENCIALIDAD DIRECTA</text><text x="123" y="306" text-anchor="middle" class="s17">Obligatoria: solo ECDHE o DHE</text>
   <rect x="237" y="272" width="206" height="44" rx="4" fill="#2d8659"/><text x="340" y="290" text-anchor="middle" class="t17">SOLO CIFRADO AEAD</text><text x="340" y="306" text-anchor="middle" class="s17">Sin RC4, 3DES ni compresión</text>
   <rect x="454" y="272" width="206" height="44" rx="4" fill="#2d8659"/><text x="557" y="290" text-anchor="middle" class="t17">SIN RSA NI RENEGOCIACIÓN</text><text x="557" y="306" text-anchor="middle" class="s17">RSA sigue valiendo para FIRMAR</text>

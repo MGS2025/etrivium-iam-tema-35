@@ -16,13 +16,13 @@
 
 Este tema incluye cuatro tipos de **cajas callout** para facilitar el estudio:
 
-> **[DATO CLAVE EXAMEN]** Información de alta densidad memorística, con alta probabilidad de aparecer en el test oficial: fechas, puertos, números de RFC, siglas y umbrales.
+> **[DATO CLAVE]** Información de alta densidad memorística: fechas, puertos, números de RFC, siglas y umbrales.
 
 > **[EJERCICIO RESUELTO]** Problema + solución paso a paso: leer una traza, interpretar un código de estado, decidir un mecanismo de transición, calcular la duración de un certificado.
 
-> **[EJEMPLO AYTO MADRID]** Aplicación real de la teoría al entorno municipal (sede electrónica, portal `madrid.es`, correo corporativo, red del IAM).
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Aplicación real de la teoría al entorno municipal (sede electrónica, portal `madrid.es`, correo corporativo, red del IAM).
 
-> **[REFERENCIA CRUZADA]** Enlace conceptual a otros temas del temario oficial.
+> **[RELACIÓN CON OTROS TEMAS]** Enlace conceptual a otros temas del temario oficial.
 
 **Advertencia de frontera, y es la más importante de este tema.** El enunciado oficial del Tema 35 se solapa deliberadamente con el del **Tema 34** («El modelo TCP/IP y el modelo de referencia OSI de ISO. Protocolos TCP/IP»). El criterio que se ha seguido aquí, y que conviene que el alumno tenga presente al estudiar los dos, es el siguiente:
 
@@ -31,7 +31,7 @@ Este tema incluye cuatro tipos de **cajas callout** para facilitar el estudio:
 
 Por eso aquí la pila TCP/IP se presenta como **marco de referencia** (§2.1) y no se desmenuza campo a campo, mientras que el **encaminamiento interdominio**, el **agotamiento de IPv4** y el **DNS** —que el Tema 34 apenas roza— se desarrollan a fondo. En la misma línea: la **seguridad perimetral, los cortafuegos y las VPN** son objeto del **Tema 36**; la **criptografía y la firma electrónica**, del **Tema 32**; los **principios del ENS y del ENI**, del **Tema 39**; y el **desarrollo de aplicaciones web y los navegadores**, del **Tema 23**. Aquí aparecen solo en la medida en que el enunciado del Tema 35 los reclama: los protocolos HTTP, HTTPS y SSL/TLS, y los requisitos de seguridad de un servicio web público.
 
-La segunda advertencia es de método. Este tema tiene **dos naturalezas mezcladas**. Una parte es **narrativa** (el origen y la evolución, la gobernanza), donde lo que se pregunta son **fechas, siglas y competencias**. La otra es **técnica y muy exacta** (protocolos, puertos, versiones, códigos de estado), donde se pregunta el **dato literal**. Ambas se aprueban con técnicas distintas: la primera con una línea del tiempo y un mapa de organismos; la segunda con tablas de puertos y de códigos. Quien estudie este tema «leyéndolo» sin fijar tablas, fallará.
+La segunda advertencia es de método. Este tema tiene **dos naturalezas mezcladas**. Una parte es **narrativa** (el origen y la evolución, la gobernanza), donde lo que importa son **fechas, siglas y competencias**. La otra es **técnica y muy exacta** (protocolos, puertos, versiones, códigos de estado), donde importa el **dato literal**. Ambas se aprueban con técnicas distintas: la primera con una línea del tiempo y un mapa de organismos; la segunda con tablas de puertos y de códigos. Quien estudie este tema «leyéndolo» sin fijar tablas, fallará.
 
 Las fuentes se citan con etiquetas breves tipo `[RFC9110]`, `[ENS]` o `[ICANN]`; el registro completo está en `tema-35-fuentes.md`. **Todos los números, títulos y fechas de RFC citados en este tema se han verificado contra el índice oficial del RFC Editor**, y las medidas del ENS, contra el PDF del BOE.
 
@@ -46,9 +46,9 @@ Las fuentes se citan con etiquetas breves tipo `[RFC9110]`, `[ENS]` o `[ICANN]`;
 
 **Qué es Internet, con precisión.** Internet es una **red de redes**: un conjunto mundial de redes de ordenadores heterogéneas, gestionadas por miles de organizaciones independientes, que se interconectan y se entienden entre sí porque todas hablan **la misma familia de protocolos, TCP/IP**. La definición oficial más citada es la que aprobó el **Federal Networking Council** de Estados Unidos el **24 de octubre de 1995** [FNC]: Internet es el sistema global de información que (a) está **lógicamente enlazado** por un espacio de direcciones único basado en el **protocolo IP**, (b) soporta comunicaciones usando **TCP/IP**, y (c) proporciona, usa o hace accesibles, de forma pública o privada, **servicios de alto nivel** construidos sobre esa infraestructura.
 
-De esa definición se extraen las tres ideas que hay que retener: **espacio de direcciones único**, **protocolo común** y **servicios superpuestos**. Y de la tercera se deriva la distinción que más se pregunta.
+De esa definición se extraen las tres ideas que hay que retener: **espacio de direcciones único**, **protocolo común** y **servicios superpuestos**. Y de la tercera se deriva una distinción clave.
 
-> **[DATO CLAVE EXAMEN]** **Internet no es la Web.** Internet es la **infraestructura** de comunicación (la red de redes con TCP/IP); la **World Wide Web** es **uno de los servicios** que se prestan sobre ella, junto con el correo electrónico, el DNS, la transferencia de archivos, el acceso remoto o la mensajería. La Web nació **veinte años después** que Internet. Toda pregunta que identifique ambas cosas es falsa.
+> **[DATO CLAVE]** **Internet no es la Web.** Internet es la **infraestructura** de comunicación (la red de redes con TCP/IP); la **World Wide Web** es **uno de los servicios** que se prestan sobre ella, junto con el correo electrónico, el DNS, la transferencia de archivos, el acceso remoto o la mensajería. La Web nació **veinte años después** que Internet. Toda pregunta que identifique ambas cosas es falsa.
 
 **Los orígenes: la conmutación de paquetes.** Internet nace de una idea teórica de principios de los años sesenta: la **conmutación de paquetes**, formulada de forma independiente por **Paul Baran** en la RAND Corporation (1964) y por **Donald Davies** en el National Physical Laboratory británico —a quien se debe el propio término *packet*—. Frente a la **conmutación de circuitos** de la red telefónica, que reserva un camino físico completo durante toda la comunicación, la conmutación de paquetes trocea el mensaje en unidades pequeñas que viajan **independientemente**, comparten los enlaces con el tráfico de otros y se reensamblan en destino. Es más eficiente y, sobre todo, **más resistente**: si un nodo cae, los paquetes buscan otro camino.
 
@@ -56,7 +56,7 @@ También de esos años es el trabajo de **J. C. R. Licklider** en ARPA, que en 1
 
 **ARPANET (1969).** El proyecto lo financia la **ARPA** (*Advanced Research Projects Agency*, después **DARPA**) del Departamento de Defensa estadounidense. El **29 de octubre de 1969** se produce la primera transmisión entre dos nodos, y a final de ese año la red tiene **cuatro nodos**: la **UCLA** (Universidad de California en Los Ángeles), el **SRI** (Stanford Research Institute), la **UCSB** (Universidad de California en Santa Bárbara) y la **Universidad de Utah**. Los ordenadores no se conectaban directamente a la línea, sino a través de un equipo intermedio llamado **IMP** (*Interface Message Processor*), el antepasado del encaminador. El protocolo de aquella primera ARPANET era el **NCP** (*Network Control Program*), **no** TCP/IP.
 
-> **[DATO CLAVE EXAMEN]** Es un mito extendido, y una trampa de examen, que ARPANET se diseñara «para resistir un ataque nuclear». El objetivo declarado fue **compartir recursos de computación escasos y caros** entre centros de investigación; la resistencia a fallos era una propiedad deseable de la conmutación de paquetes, no su finalidad política. Los propios protagonistas (Cerf, Kahn, Kleinrock) lo han desmentido por escrito.
+> **[DATO CLAVE]** Es un mito extendido que ARPANET se diseñara «para resistir un ataque nuclear». El objetivo declarado fue **compartir recursos de computación escasos y caros** entre centros de investigación; la resistencia a fallos era una propiedad deseable de la conmutación de paquetes, no su finalidad política. Los propios protagonistas (Cerf, Kahn, Kleinrock) lo han desmentido por escrito.
 
 **1974: TCP.** El problema siguiente fue interconectar redes **distintas** (ARPANET, redes por radio como PRNET, redes por satélite). A eso se le llamó el **problema del *internetworking***, y de ahí viene la palabra *Internet*. En **1974**, **Vinton Cerf** y **Robert Kahn** publican el artículo *A Protocol for Packet Network Intercommunication*, donde definen el **TCP** y establecen los principios de diseño que siguen vigentes:
 
@@ -71,7 +71,7 @@ En **1978**, Cerf, Postel y Danny Cohen **parten TCP en dos**: **IP** se queda c
 
 **1983-1990: la infraestructura civil.** En **1983-1984** se introduce el **DNS** (Paul Mockapetris, RFC 882/883, sustituidos en 1987 por los **RFC 1034 y 1035**), que reemplaza el fichero único `HOSTS.TXT` que hasta entonces mantenía a mano el **NIC** del SRI. En **1986** la **NSF** estadounidense crea **NSFNET**, la red troncal académica que sustituye progresivamente a ARPANET —**desmantelada formalmente en 1990**— y que en **1995** se privatiza, abriendo la red al tráfico comercial. En Europa, **RIPE** se constituye en **1989** para coordinar las redes IP europeas y **RedIRIS** (creada en 1988, hoy dependiente de Red.es) conecta a la comunidad académica española.
 
-> **[REFERENCIA CRUZADA]** La conmutación de paquetes frente a la de circuitos, los medios de transmisión y los equipos de conmutación se estudian en el **Tema 33** (Comunicaciones). El detalle interno de los protocolos TCP, UDP e IP corresponde al **Tema 34**.
+> **[RELACIÓN CON OTROS TEMAS]** La conmutación de paquetes frente a la de circuitos, los medios de transmisión y los equipos de conmutación se estudian en el **Tema 33** (Comunicaciones). El detalle interno de los protocolos TCP, UDP e IP corresponde al **Tema 34**.
 
 #### 1.1.2. Evolución de la World Wide Web y estado actual
 
@@ -89,10 +89,10 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 
 - **Web 1.0** (≈1991-2003): **estática y de solo lectura**. Páginas HTML servidas tal cual, el usuario es un consumidor pasivo. Portales, directorios, primeros buscadores.
 - **Web 2.0** (≈2004-2015): **social y de lectura-escritura**. El usuario **genera el contenido**: blogs, wikis, redes sociales, plataformas de vídeo. Técnicamente la habilitan **AJAX**, las API y el desarrollo en el lado del cliente. El término lo populariza Tim O'Reilly en 2004.
-- **Web 3.0**: aquí hay que ser cuidadoso, porque **coexisten dos acepciones distintas** y las preguntas suelen jugar con ello. La original de Berners-Lee es la **Web Semántica**: dar significado procesable por máquinas a los datos mediante **RDF**, **OWL** y **SPARQL** (estándares del W3C). La acepción posterior, **Web3**, se refiere a la web descentralizada sobre **cadenas de bloques**. **No son lo mismo.**
+- **Web 3.0**: aquí hay que ser cuidadoso, porque **coexisten dos acepciones distintas** y es fácil confundirlas. La original de Berners-Lee es la **Web Semántica**: dar significado procesable por máquinas a los datos mediante **RDF**, **OWL** y **SPARQL** (estándares del W3C). La acepción posterior, **Web3**, se refiere a la web descentralizada sobre **cadenas de bloques**. **No son lo mismo.**
 - **Estado actual**: predominio del acceso **móvil**, de las **redes de distribución de contenidos (CDN)**, del **cloud** y, desde 2023, de la **IA generativa** como capa de consumo de la información. Al mismo tiempo se ha producido una **reconcentración**: una parte enorme del tráfico termina en un número reducido de plataformas y de proveedores de nube, lo que tensiona el diseño distribuido original.
 
-> **[DATO CLAVE EXAMEN]** **Web 3.0 (Web Semántica)** = datos con significado, RDF/OWL/SPARQL, propuesta del **W3C** y de **Berners-Lee**. **Web3** = descentralización sobre cadena de bloques, criptoactivos, contratos inteligentes. Si el enunciado habla de «significado procesable por máquinas», es la primera; si habla de «descentralización y cadena de bloques», es la segunda.
+> **[DATO CLAVE]** **Web 3.0 (Web Semántica)** = datos con significado, RDF/OWL/SPARQL, propuesta del **W3C** y de **Berners-Lee**. **Web3** = descentralización sobre cadena de bloques, criptoactivos, contratos inteligentes. Si el enunciado habla de «significado procesable por máquinas», es la primera; si habla de «descentralización y cadena de bloques», es la segunda.
 
 **El estado actual en cifras.** Estos datos son **volátiles por naturaleza**: se dan con fecha y hay que reverificarlos antes de cada convocatoria. Aun así, un opositor debe manejar los órdenes de magnitud.
 
@@ -109,9 +109,9 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 | Sitios que anuncian **HTTP/3** | ≈ **39,5 %** | junio de 2026, W3Techs |
 | Dominios **`.es`** registrados | **2.226.598** | 6 de agosto de 2026, **Red.es** |
 
-> **[DATO CLAVE EXAMEN]** El **28 de marzo de 2026** la medición de Google registró por primera vez que **más de la mitad** de los accesos a sus servicios se hacían por **IPv6 nativo** (50,10 %). Es el hito que cierra dieciocho años de despliegue. **España, en cambio, está en torno al 10 %**, muy por detrás de Francia (≈73 %) o la India (≈72 %): es un contraste que conviene recordar, porque explica por qué en la Administración española la **doble pila** sigue siendo la regla y no la excepción.
+> **[DATO CLAVE]** El **28 de marzo de 2026** la medición de Google registró por primera vez que **más de la mitad** de los accesos a sus servicios se hacían por **IPv6 nativo** (50,10 %). Es el hito que cierra dieciocho años de despliegue. **España, en cambio, está en torno al 10 %**, muy por detrás de Francia (≈73 %) o la India (≈72 %): es un contraste que conviene recordar, porque explica por qué en la Administración española la **doble pila** sigue siendo la regla y no la excepción.
 
-> **[EJEMPLO AYTO MADRID]** El contraste anterior tiene una consecuencia directa en un ayuntamiento: un servicio municipal publicado **solo en IPv6** sería inaccesible para la mayoría de la ciudadanía española, mientras que uno publicado **solo en IPv4** ya empieza a penalizar a quien accede desde redes móviles con CGNAT. La respuesta correcta —y la que exige el ENI para los servicios públicos— es **publicar en doble pila**.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** El contraste anterior tiene una consecuencia directa en un ayuntamiento: un servicio municipal publicado **solo en IPv6** sería inaccesible para la mayoría de la ciudadanía española, mientras que uno publicado **solo en IPv4** ya empieza a penalizar a quien accede desde redes móviles con CGNAT. La respuesta correcta —y la que exige el ENI para los servicios públicos— es **publicar en doble pila**.
 
 ### 1.2. Gobernanza de Internet y estandarización
 
@@ -125,7 +125,7 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 2. **Números**: bloques de direcciones IP y de números de sistema autónomo, que se entregan **en bloque a los cinco RIR**.
 3. **Parámetros de protocolo**: los registros de valores que usan los RFC (números de puerto, códigos de estado HTTP, algoritmos de TLS…).
 
-> **[DATO CLAVE EXAMEN]** **Transición de las funciones IANA.** Hasta 2016 la ICANN ejercía las funciones IANA en virtud de un **contrato con el Departamento de Comercio de EE. UU.** (la NTIA). Ese contrato **expiró el 30 de septiembre de 2016** y no se renovó: desde el **1 de octubre de 2016** las funciones las ejerce **PTI** (*Public Technical Identifiers*), una **filial** de ICANN, bajo supervisión de la propia comunidad. Es el momento en que la gestión de los identificadores pasa de la tutela de un gobierno a un modelo plenamente multiactor.
+> **[DATO CLAVE]** **Transición de las funciones IANA.** Hasta 2016 la ICANN ejercía las funciones IANA en virtud de un **contrato con el Departamento de Comercio de EE. UU.** (la NTIA). Ese contrato **expiró el 30 de septiembre de 2016** y no se renovó: desde el **1 de octubre de 2016** las funciones las ejerce **PTI** (*Public Technical Identifiers*), una **filial** de ICANN, bajo supervisión de la propia comunidad. Es el momento en que la gestión de los identificadores pasa de la tutela de un gobierno a un modelo plenamente multiactor.
 
 **Los cinco Registros Regionales de Internet (RIR).** Reciben bloques de la IANA y los distribuyen en su región a los **LIR** (*Local Internet Registries*), que son típicamente los operadores:
 
@@ -137,9 +137,9 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 | **LACNIC** | América Latina y Caribe | Uruguay |
 | **AFRINIC** | África | Mauricio |
 
-> **[DATO CLAVE EXAMEN]** **España pertenece a RIPE NCC.** El orden de la cadena es siempre: **IANA → RIR → LIR (operador) → usuario final**. Y el registro de **quién tiene cada dominio o cada bloque** se consulta con **WHOIS**, sustituido progresivamente por **RDAP**, que sí permite control de acceso y respuestas estructuradas en JSON —un cambio impulsado, entre otras razones, por el **RGPD**—.
+> **[DATO CLAVE]** **España pertenece a RIPE NCC.** El orden de la cadena es siempre: **IANA → RIR → LIR (operador) → usuario final**. Y el registro de **quién tiene cada dominio o cada bloque** se consulta con **WHOIS**, sustituido progresivamente por **RDAP**, que sí permite control de acceso y respuestas estructuradas en JSON —un cambio impulsado, entre otras razones, por el **RGPD**—.
 
-**Los organismos técnicos.** Conviene tener clarísimo quién hace qué, porque es la pregunta típica:
+**Los organismos técnicos.** Conviene tener clarísimo quién hace qué:
 
 | Organismo | Qué hace | Qué NO hace |
 |---|---|---|
@@ -154,7 +154,7 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 | **ITU-T** | Recomendaciones de telecomunicación (X.25, X.509, series G) desde un organismo **intergubernamental** de la ONU | No gobierna Internet |
 | **IGF** (*Internet Governance Forum*) | Foro **de diálogo** político auspiciado por la ONU desde 2006 | **No** adopta decisiones vinculantes |
 
-> **[DATO CLAVE EXAMEN]** Las tres confusiones que más se preguntan: (1) **W3C ≠ IETF** — el W3C estandariza la **Web** (HTML, CSS), el IETF estandariza **Internet** (IP, TCP, HTTP, TLS); nótese que **HTTP es del IETF**, no del W3C, pese a ser el protocolo de la Web. (2) **ICANN ≠ IETF** — la primera reparte identificadores, el segundo escribe protocolos. (3) **El IGF no decide nada**: es un foro de diálogo sin capacidad normativa.
+> **[DATO CLAVE]** Las tres confusiones más frecuentes: (1) **W3C ≠ IETF** — el W3C estandariza la **Web** (HTML, CSS), el IETF estandariza **Internet** (IP, TCP, HTTP, TLS); nótese que **HTTP es del IETF**, no del W3C, pese a ser el protocolo de la Web. (2) **ICANN ≠ IETF** — la primera reparte identificadores, el segundo escribe protocolos. (3) **El IGF no decide nada**: es un foro de diálogo sin capacidad normativa.
 
 **El plano europeo y nacional.** Junto a los organismos técnicos globales, hay un plano jurídico que sí es vinculante y que crece: la **Directiva NIS2** (UE) 2022/2555 sobre ciberseguridad, el **Reglamento de Servicios Digitales** (DSA), el **Reglamento de Mercados Digitales** (DMA), el **Reglamento eIDAS** y su revisión **eIDAS 2**, y el **Reglamento de Datos**. En España, la gestión del dominio **`.es`** corresponde a **Red.es** a través de **Dominios.es**, y la conectividad de la Administración se articula sobre la **red SARA**.
 
@@ -162,9 +162,9 @@ En **1990** Berners-Lee escribe el primer servidor (`httpd`) y el primer navegad
 
 **Qué es un RFC.** *Request for Comments* es la serie documental donde se publican las especificaciones de Internet. El nombre —«petición de comentarios»— es un resto de su origen informal en **1969**: **Steve Crocker** escribió el **RFC 1** (*Host Software*) precisamente con ese título modesto para no parecer que imponía nada. Hoy la serie la publica el **RFC Editor** y supera con creces los **9.900** documentos.
 
-Dos propiedades definen la serie y **ambas se preguntan**:
+Dos propiedades definen la serie:
 
-> **[DATO CLAVE EXAMEN]** **Un RFC publicado nunca se modifica.** Su número y su contenido son **inmutables**. Cuando la tecnología cambia, se publica un **RFC nuevo** que **obsoleta** (*obsoletes*) o **actualiza** (*updates*) al anterior. Por eso hay que citar siempre el número y, si importa, comprobar en el índice del RFC Editor si sigue vigente. Ejemplo vivo: el RFC 2616 (HTTP/1.1, 1999) fue sustituido por los RFC 723x en 2014, y estos por los **RFC 9110-9112 en 2022**.
+> **[DATO CLAVE]** **Un RFC publicado nunca se modifica.** Su número y su contenido son **inmutables**. Cuando la tecnología cambia, se publica un **RFC nuevo** que **obsoleta** (*obsoletes*) o **actualiza** (*updates*) al anterior. Por eso hay que citar siempre el número y, si importa, comprobar en el índice del RFC Editor si sigue vigente. Ejemplo vivo: el RFC 2616 (HTTP/1.1, 1999) fue sustituido por los RFC 723x en 2014, y estos por los **RFC 9110-9112 en 2022**.
 
 **El camino de un estándar.** Ver **diagrama D3**.
 
@@ -183,11 +183,11 @@ Dos propiedades definen la serie y **ambas se preguntan**:
 | **Experimental** | Especificación en pruebas | Protocolos aún no maduros |
 | **Historic** | Superado y desaconsejado | RFC de SSL, Telnet en claro |
 
-> **[DATO CLAVE EXAMEN]** Cuando un documento alcanza el rango de **Internet Standard**, además de su número de RFC recibe un número de la serie **STD**, que **no cambia** aunque se reedite el RFC. Ejemplos verificados: **STD 97 = RFC 9110** (semántica HTTP), **STD 98 = RFC 9111** (caché), **STD 99 = RFC 9112** (HTTP/1.1), **STD 86 = RFC 8200** (IPv6), **STD 102 = RFC 9915** (DHCPv6, enero de 2026). El nivel «Draft Standard» intermedio **se eliminó en 2011** (RFC 6410), aunque quedan RFC antiguos etiquetados así.
+> **[DATO CLAVE]** Cuando un documento alcanza el rango de **Internet Standard**, además de su número de RFC recibe un número de la serie **STD**, que **no cambia** aunque se reedite el RFC. Ejemplos verificados: **STD 97 = RFC 9110** (semántica HTTP), **STD 98 = RFC 9111** (caché), **STD 99 = RFC 9112** (HTTP/1.1), **STD 86 = RFC 8200** (IPv6), **STD 102 = RFC 9915** (DHCPv6, enero de 2026). El nivel «Draft Standard» intermedio **se eliminó en 2011** (RFC 6410), aunque quedan RFC antiguos etiquetados así.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: un pliego técnico municipal exige que el servicio «cumpla el RFC 5246». ¿Es correcto redactarlo así en 2026? **Solución**: no. El **RFC 5246** especificaba **TLS 1.2** y fue **obsoletado**, primero parcialmente por el RFC 8446 y de forma completa por el **RFC 9846 (julio de 2026)**, que reedita TLS 1.3 y absorbe la especificación de TLS 1.2. Un pliego correcto no debería fijar un número de RFC congelado, sino exigir **«TLS 1.2 o superior, con los algoritmos y parámetros autorizados por el CCN»**, que es la formulación que emplea el propio ENS en `mp.com.2.r1`. Así el pliego sigue siendo válido cuando el IETF reedite la especificación.
 
-> **[REFERENCIA CRUZADA]** La normalización de las capas físicas y de enlace (IEEE 802.3, 802.11) se trata en los **Temas 33 y 37**. Los estándares del W3C relativos a **accesibilidad (WCAG)** se estudian en el **Tema 25**, y los de marcado (HTML, XML) en el **Tema 23**.
+> **[RELACIÓN CON OTROS TEMAS]** La normalización de las capas físicas y de enlace (IEEE 802.3, 802.11) se trata en los **Temas 33 y 37**. Los estándares del W3C relativos a **accesibilidad (WCAG)** se estudian en el **Tema 25**, y los de marcado (HTML, XML) en el **Tema 23**.
 
 ---
 ## 2. Arquitectura de red de Internet
@@ -210,9 +210,9 @@ Dos modelos conviven en la literatura y en los exámenes:
 | **Internet** o red | 3 Red | **IP** (v4 y v6), ICMP, IGMP, ARP (*), protocolos de encaminamiento | **Paquete** / datagrama IP | **Encaminador** |
 | **Acceso a red** o enlace | 2 Enlace de datos · 1 Física | Ethernet (802.3), Wi-Fi (802.11), PPP | **Trama** / **bit** | Conmutador · concentrador |
 
-(*) La ubicación de **ARP** es una pregunta clásica con trampa: resuelve direcciones IP en direcciones MAC, por lo que se sitúa **entre** las capas 2 y 3; el RFC 1122 lo coloca en la capa de **enlace**, y buena parte de la literatura, «entre» ambas.
+(*) La ubicación de **ARP** tiene trampa: resuelve direcciones IP en direcciones MAC, por lo que se sitúa **entre** las capas 2 y 3; el RFC 1122 lo coloca en la capa de **enlace**, y buena parte de la literatura, «entre» ambas.
 
-> **[DATO CLAVE EXAMEN]** La correspondencia exacta que se pregunta: la capa de **aplicación** de TCP/IP **absorbe tres** capas de OSI (aplicación, presentación y sesión), y la de **acceso a red** absorbe **dos** (enlace y física). Las capas de **transporte** e **internet/red** se corresponden **una a una**. Hay quien presenta TCP/IP con **cinco** capas separando física y enlace: es una variante didáctica admitida, pero **el modelo canónico del RFC 1122 tiene cuatro**.
+> **[DATO CLAVE]** La correspondencia exacta: la capa de **aplicación** de TCP/IP **absorbe tres** capas de OSI (aplicación, presentación y sesión), y la de **acceso a red** absorbe **dos** (enlace y física). Las capas de **transporte** e **internet/red** se corresponden **una a una**. Hay quien presenta TCP/IP con **cinco** capas separando física y enlace: es una variante didáctica admitida, pero **el modelo canónico del RFC 1122 tiene cuatro**.
 
 **El principio del reloj de arena.** La forma de la pila de Internet se describe como un **reloj de arena**: abajo hay **muchas** tecnologías de acceso (Ethernet, Wi-Fi, 5G, fibra, satélite), arriba hay **muchísimos** protocolos y aplicaciones, y en el centro, en el cuello estrecho, hay **uno solo: IP**. Esa estrechez es lo que hace universal a Internet —todo puede ir sobre IP e IP puede ir sobre todo— y también lo que ha hecho tan doloroso el cambio de IPv4 a IPv6: **cambiar el cuello del reloj afecta a todo lo demás**.
 
@@ -226,7 +226,7 @@ Dos modelos conviven en la literatura y en los exámenes:
 | Cabecera | **20 bytes** mínimo | **8 bytes** |
 | Usos típicos | Web, correo, transferencia de archivos, SSH | DNS, DHCP, voz y vídeo en tiempo real, **QUIC** |
 
-> **[DATO CLAVE EXAMEN]** Un **puerto** es un identificador de **16 bits** (0-65535) que multiplexa las aplicaciones sobre una misma dirección IP. Rangos de la **IANA**: **0-1023 puertos bien conocidos** (*well-known*, reservados a servicios de sistema), **1024-49151 registrados**, **49152-65535 dinámicos o efímeros**. La combinación **IP origen + puerto origen + IP destino + puerto destino + protocolo** identifica de forma única una conexión: es la **quíntupla** o *5-tuple*.
+> **[DATO CLAVE]** Un **puerto** es un identificador de **16 bits** (0-65535) que multiplexa las aplicaciones sobre una misma dirección IP. Rangos de la **IANA**: **0-1023 puertos bien conocidos** (*well-known*, reservados a servicios de sistema), **1024-49151 registrados**, **49152-65535 dinámicos o efímeros**. La combinación **IP origen + puerto origen + IP destino + puerto destino + protocolo** identifica de forma única una conexión: es la **quíntupla** o *5-tuple*.
 
 #### 2.1.2. Encapsulamiento y transmisión de datos
 
@@ -242,9 +242,9 @@ Recorrido completo de una petición a la sede electrónica:
 
 En el destino se repite el proceso a la inversa, y cada capa **quita su cabecera** y entrega el resto a la superior.
 
-> **[DATO CLAVE EXAMEN]** El encapsulamiento explica la **sobrecarga** (*overhead*) y el concepto de **MTU**. La **MTU** de Ethernet es de **1.500 bytes** de carga útil. Si un paquete IPv4 supera la MTU de un enlace, **el encaminador puede fragmentarlo**; en **IPv6 los encaminadores intermedios NO fragmentan**: solo lo hace el **origen**, que descubre la MTU del camino con **Path MTU Discovery** (y si algo no cabe, se devuelve un error ICMPv6 «paquete demasiado grande»). Es una de las diferencias más preguntadas entre IPv4 e IPv6.
+> **[DATO CLAVE]** El encapsulamiento explica la **sobrecarga** (*overhead*) y el concepto de **MTU**. La **MTU** de Ethernet es de **1.500 bytes** de carga útil. Si un paquete IPv4 supera la MTU de un enlace, **el encaminador puede fragmentarlo**; en **IPv6 los encaminadores intermedios NO fragmentan**: solo lo hace el **origen**, que descubre la MTU del camino con **Path MTU Discovery** (y si algo no cabe, se devuelve un error ICMPv6 «paquete demasiado grande»). Es una de las diferencias clave entre IPv4 e IPv6.
 
-**Qué cambia en cada salto y qué no.** Otra pregunta clásica: al atravesar un encaminador, **las direcciones MAC de la trama cambian en cada salto** (son locales al enlace), mientras que **las direcciones IP de origen y destino permanecen** de extremo a extremo —salvo que haya un **NAT** por medio, que precisamente lo que hace es reescribirlas—. El **TTL** (o *hop limit* en IPv6) se **decrementa en una unidad** en cada encaminador, y cuando llega a cero el paquete se descarta y se genera un mensaje ICMP: ese es el mecanismo en el que se apoya la herramienta `traceroute`.
+**Qué cambia en cada salto y qué no.** Al atravesar un encaminador, **las direcciones MAC de la trama cambian en cada salto** (son locales al enlace), mientras que **las direcciones IP de origen y destino permanecen** de extremo a extremo —salvo que haya un **NAT** por medio, que precisamente lo que hace es reescribirlas—. El **TTL** (o *hop limit* en IPv6) se **decrementa en una unidad** en cada encaminador, y cuando llega a cero el paquete se descarta y se genera un mensaje ICMP: ese es el mecanismo en el que se apoya la herramienta `traceroute`.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: un empleado municipal no puede acceder a `sede.madrid.es`. Se comprueba que `ping 8.8.8.8` responde, pero `ping sede.madrid.es` devuelve «host desconocido». ¿En qué capa está el problema y cuál es la causa más probable? **Solución**: hay conectividad **de capa de red** (el `ping` a una IP funciona: IP, enlace y física están bien), pero falla la **resolución de nombres**, que es un servicio de la **capa de aplicación**. La causa más probable es una **configuración o caída del servidor DNS** del puesto, no un problema de red. Comprobación: `nslookup sede.madrid.es 8.8.8.8`; si resuelve contra un DNS externo pero no contra el corporativo, el fallo está en el resolutor de la organización. **Lección de método**: aislar siempre **por capas**, de abajo arriba.
 
@@ -256,7 +256,7 @@ En el destino se repite el proceso a la inversa, y cada capa **quita su cabecera
 
 **Sistema Autónomo (AS).** Es un conjunto de redes y encaminadores bajo **una misma administración** que presenta hacia el exterior una **política de encaminamiento única y coherente**. Se identifica con un **ASN** (*Autonomous System Number*), asignado por la IANA a través de los RIR, de **32 bits** desde 2007 (antes eran de 16 bits, y los 16 bits se agotaron: por eso hoy se ven ASN «altos»).
 
-> **[DATO CLAVE EXAMEN]** Distinción **IGP frente a EGP**, que es materia de examen segura:
+> **[DATO CLAVE]** Distinción **IGP frente a EGP**:
 > - **IGP** (*Interior Gateway Protocol*): encamina **dentro** de un AS. Ejemplos: **RIP** (vector de distancias), **OSPF** e **IS-IS** (estado de enlace), **EIGRP**. Optimizan una **métrica técnica** (saltos, coste, ancho de banda).
 > - **EGP** (*Exterior Gateway Protocol*): encamina **entre** AS. Solo hay uno en uso: **BGP-4** (RFC 4271), que funciona sobre **TCP puerto 179**, es un protocolo de **vector de caminos** (*path vector*) y decide **por política**, no por métrica.
 
@@ -269,17 +269,17 @@ Esa estructura suele describirse en niveles: los **Tier 1** son los AS que alcan
 
 **Puntos neutros (IXP).** Un **Internet Exchange Point** es una infraestructura física —en la práctica, una red conmutada de gran capacidad alojada en uno o varios centros de datos— donde muchos operadores se conectan y hacen *peering* entre sí. Beneficios: **reduce costes** de tránsito, **baja la latencia** (el tráfico local no da un rodeo por otro país) y **mejora la resiliencia**.
 
-> **[DATO CLAVE EXAMEN]** Los dos puntos neutros de referencia en España son **ESPANIX** (Madrid, constituido el **13 de mayo de 1997**, el veterano; con picos que superan los **2 Tbps** y un crecimiento superior al 12 % interanual en 2026) y **DE-CIX Madrid** (abierto en 2016, con picos por encima de **1,5 Tbit/s**). Su función es que el tráfico entre operadores españoles **se quede en España** en vez de intercambiarse en Londres, París o Fráncfort.
+> **[DATO CLAVE]** Los dos puntos neutros de referencia en España son **ESPANIX** (Madrid, constituido el **13 de mayo de 1997**, el veterano; con picos que superan los **2 Tbps** y un crecimiento superior al 12 % interanual en 2026) y **DE-CIX Madrid** (abierto en 2016, con picos por encima de **1,5 Tbit/s**). Su función es que el tráfico entre operadores españoles **se quede en España** en vez de intercambiarse en Londres, París o Fráncfort.
 
 **Riesgos del encaminamiento interdominio.** BGP fue diseñado **sobre la confianza mutua** y no valida quién anuncia qué. De ahí dos incidentes recurrentes: el **secuestro de prefijos** (*BGP hijacking*), en el que un AS anuncia un bloque que no le pertenece y atrae tráfico ajeno, y las **fugas de rutas** (*route leaks*). Las contramedidas actuales son la **RPKI** (infraestructura de clave pública de recursos, que firma criptográficamente qué AS está autorizado a originar cada prefijo mediante objetos **ROA**), el filtrado por objetos del registro **IRR** y las buenas prácticas del acuerdo sectorial **MANRS**.
 
-> **[EJEMPLO AYTO MADRID]** Un ayuntamiento grande no compra «Internet» a una sola empresa y se olvida: contrata **al menos dos operadores de tránsito** con encaminamiento redundante y, si dispone de **ASN y de bloque propio**, anuncia sus prefijos por ambos, de modo que la caída de un operador no deja fuera de servicio la sede electrónica ni el correo municipal. Esa redundancia es, además, la forma natural de cumplir las medidas de **disponibilidad** del ENS sobre el servicio de comunicaciones.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un ayuntamiento grande no compra «Internet» a una sola empresa y se olvida: contrata **al menos dos operadores de tránsito** con encaminamiento redundante y, si dispone de **ASN y de bloque propio**, anuncia sus prefijos por ambos, de modo que la caída de un operador no deja fuera de servicio la sede electrónica ni el correo municipal. Esa redundancia es, además, la forma natural de cumplir las medidas de **disponibilidad** del ENS sobre el servicio de comunicaciones.
 
 #### 2.2.2. Coexistencia de los protocolos IPv4 e IPv6
 
 **El agotamiento de IPv4.** IPv4 usa direcciones de **32 bits**: **2³² = 4.294.967.296** direcciones teóricas, y bastantes menos utilizables tras descontar los rangos reservados. Cuando se diseñó, en 1981, parecían inagotables. No lo eran.
 
-> **[DATO CLAVE EXAMEN]** Fechas del agotamiento, que se preguntan literalmente: la **IANA** entregó sus **últimos cinco bloques `/8`** a los RIR el **3 de febrero de 2011**. **RIPE NCC** —el RIR de España— **entró en la fase del «último `/8`»** el **14 de septiembre de 2012**, desde la cual cada operador solo podía recibir una **única asignación final de un `/22`** (1.024 direcciones), y alcanzó el **agotamiento pleno el 25 de noviembre de 2019**, desde el cual solo asigna direcciones **recuperadas**, mediante lista de espera.
+> **[DATO CLAVE]** Fechas del agotamiento: la **IANA** entregó sus **últimos cinco bloques `/8`** a los RIR el **3 de febrero de 2011**. **RIPE NCC** —el RIR de España— **entró en la fase del «último `/8`»** el **14 de septiembre de 2012**, desde la cual cada operador solo podía recibir una **única asignación final de un `/22`** (1.024 direcciones), y alcanzó el **agotamiento pleno el 25 de noviembre de 2019**, desde el cual solo asigna direcciones **recuperadas**, mediante lista de espera.
 
 **Los paliativos que aplazaron el problema** (y que hay que saber distinguir):
 
@@ -291,7 +291,7 @@ Esa estructura suele describirse en niveles: los **Tier 1** son los AS que alcan
 | **NAT / PAT** | RFC 3022 | Traduce muchas direcciones privadas a una pública, multiplexando por **puerto** | Rompe el principio **extremo a extremo**, complica servidores entrantes, VoIP e IPsec |
 | **CGNAT** | **RFC 6598** | NAT **del operador**, con el rango compartido **100.64.0.0/10** | Varios clientes comparten IP pública: dificulta la **trazabilidad** y el bloqueo por IP |
 
-> **[DATO CLAVE EXAMEN]** **CGNAT y trazabilidad.** Cuando un operador aplica CGNAT, **decenas o cientos de abonados comparten una misma IP pública**. Para identificar a un usuario a partir de una dirección ya **no basta la IP y la hora**: hace falta también el **puerto de origen**. Tiene consecuencias prácticas directas en la Administración: los registros (*logs*) de un servicio público deben guardar **IP y puerto de origen** si se quiere poder responder a un requerimiento judicial, y el bloqueo por dirección IP puede dejar fuera a usuarios legítimos.
+> **[DATO CLAVE]** **CGNAT y trazabilidad.** Cuando un operador aplica CGNAT, **decenas o cientos de abonados comparten una misma IP pública**. Para identificar a un usuario a partir de una dirección ya **no basta la IP y la hora**: hace falta también el **puerto de origen**. Tiene consecuencias prácticas directas en la Administración: los registros (*logs*) de un servicio público deben guardar **IP y puerto de origen** si se quiere poder responder a un requerimiento judicial, y el bloqueo por dirección IP puede dejar fuera a usuarios legítimos.
 
 **IPv6.** Especificado en el **RFC 8200** (julio de 2017, **STD 86**), que sustituyó al RFC 2460. Sus rasgos, en contraste con IPv4:
 
@@ -307,7 +307,7 @@ Esa estructura suele describirse en niveles: los **Tier 1** son los AS que alcan
 | Seguridad | IPsec opcional | IPsec previsto en la arquitectura (aunque su uso también es opcional en la práctica) |
 | Resolución de vecinos | **ARP** | **NDP** (protocolo de descubrimiento de vecinos, sobre ICMPv6) |
 
-> **[DATO CLAVE EXAMEN]** Direcciones IPv6 que hay que reconocer a simple vista: **`::1/128`** es la de bucle local (equivalente a `127.0.0.1`); **`fe80::/10`** son las de **enlace local**, obligatorias en toda interfaz y no encaminables; **`fc00::/7`** son las **únicas locales** (el equivalente conceptual a las privadas del RFC 1918); **`ff00::/8`** son las de **multidifusión**; **`2000::/3`** es el rango de las **globales unidifusión** actualmente asignado. El prefijo estándar de una subred es **`/64`**, y **`2001:db8::/32`** está reservado para **documentación**: si aparece en un ejemplo, no es una red real.
+> **[DATO CLAVE]** Direcciones IPv6 que hay que reconocer a simple vista: **`::1/128`** es la de bucle local (equivalente a `127.0.0.1`); **`fe80::/10`** son las de **enlace local**, obligatorias en toda interfaz y no encaminables; **`fc00::/7`** son las **únicas locales** (el equivalente conceptual a las privadas del RFC 1918); **`ff00::/8`** son las de **multidifusión**; **`2000::/3`** es el rango de las **globales unidifusión** actualmente asignado. El prefijo estándar de una subred es **`/64`**, y **`2001:db8::/32`** está reservado para **documentación**: si aparece en un ejemplo, no es una red real.
 
 **Los tres mecanismos de coexistencia.** La clave conceptual: **IPv4 e IPv6 son protocolos incompatibles**; un nodo que solo hable IPv6 **no puede** comunicarse directamente con uno que solo hable IPv4. Por eso hacen falta mecanismos de transición. Ver **diagrama D7**.
 
@@ -315,9 +315,9 @@ Esa estructura suele describirse en niveles: los **Tier 1** son los AS que alcan
 2. **Túneles**: se **encapsula** IPv6 dentro de IPv4 para atravesar una zona que no habla IPv6 (**6in4**, **6to4**, **Teredo**, **GRE**, **6rd**). Útil como parche; añade sobrecarga y dificulta la inspección de tráfico.
 3. **Traducción**: una pasarela **convierte** entre protocolos. La combinación vigente es **NAT64 + DNS64** (el DNS sintetiza registros AAAA a partir de los A, y la pasarela traduce), con **464XLAT** en redes móviles. Es el camino de las redes que ya son **solo IPv6**.
 
-> **[DATO CLAVE EXAMEN]** El mecanismo **NAT-PT** (RFC 2766) está **declarado histórico** (RFC 4966) y no debe proponerse. Y una trampa habitual: **no existe** ningún mecanismo que permita que un nodo solo-IPv4 hable con uno solo-IPv6 **sin un elemento intermedio**; toda solución pasa por doble pila, túnel o traducción.
+> **[DATO CLAVE]** El mecanismo **NAT-PT** (RFC 2766) está **declarado histórico** (RFC 4966) y no debe proponerse. Y una trampa habitual: **no existe** ningún mecanismo que permita que un nodo solo-IPv4 hable con uno solo-IPv6 **sin un elemento intermedio**; toda solución pasa por doble pila, túnel o traducción.
 
-> **[EJEMPLO AYTO MADRID]** Escenario típico municipal: la red interna del Ayuntamiento funciona en **IPv4 privado con NAT**, y los servicios publicados a la ciudadanía —sede electrónica, portal, API— se ofrecen en **doble pila** para ser accesibles desde ambos mundos. La adopción interna de IPv6 se aborda normalmente por fases y empezando por lo publicado hacia fuera, porque el mayor riesgo no es técnico sino de **gestión**: durante el periodo de coexistencia, cada regla de cortafuegos y cada lista de control de acceso hay que **duplicarla y mantenerla en los dos protocolos**; una regla que solo se aplica a IPv4 deja abierta la puerta IPv6.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Escenario típico municipal: la red interna del Ayuntamiento funciona en **IPv4 privado con NAT**, y los servicios publicados a la ciudadanía —sede electrónica, portal, API— se ofrecen en **doble pila** para ser accesibles desde ambos mundos. La adopción interna de IPv6 se aborda normalmente por fases y empezando por lo publicado hacia fuera, porque el mayor riesgo no es técnico sino de **gestión**: durante el periodo de coexistencia, cada regla de cortafuegos y cada lista de control de acceso hay que **duplicarla y mantenerla en los dos protocolos**; una regla que solo se aplica a IPv4 deja abierta la puerta IPv6.
 
 #### 2.2.3. Sistema de Nombres de Dominio
 
@@ -337,7 +337,7 @@ Tres propiedades definen su diseño:
 - **TLD**: **gTLD** genéricos (`.com`, `.org`, `.net`, y desde 2012 centenares de nuevos gTLD), **ccTLD** de código de país (**`.es`**, `.fr`, `.eu` como caso especial supranacional) y los **IDN** con caracteres no latinos.
 - **Dominios de segundo nivel y siguientes**: los registra el titular a través de un **agente registrador** (*registrar*) acreditado por el **registro** (*registry*) del TLD.
 
-> **[DATO CLAVE EXAMEN]** ¿Por qué **13** servidores raíz? Por una limitación histórica: para que la respuesta con la lista completa de servidores raíz **cupiera en un único datagrama UDP de 512 bytes**, que era el tamaño máximo garantizado del DNS clásico. Hoy la restricción se ha superado con **EDNS0** (RFC 6891), pero el número 13 se mantiene por compatibilidad. **La cifra que no cambia es 13 identidades; el número de instancias físicas crece continuamente.**
+> **[DATO CLAVE]** ¿Por qué **13** servidores raíz? Por una limitación histórica: para que la respuesta con la lista completa de servidores raíz **cupiera en un único datagrama UDP de 512 bytes**, que era el tamaño máximo garantizado del DNS clásico. Hoy la restricción se ha superado con **EDNS0** (RFC 6891), pero el número 13 se mantiene por compatibilidad. **La cifra que no cambia es 13 identidades; el número de instancias físicas crece continuamente.**
 
 **Cómo se resuelve un nombre.** Hay dos tipos de consulta y **confundirlos es un fallo típico**:
 
@@ -352,7 +352,7 @@ Resolución completa de `sede.madrid.es`:
 4. Pregunta al servidor **autoritativo de `madrid.es`** → devuelve el **registro A/AAAA** de `sede.madrid.es`.
 5. El resolutor **cachea** la respuesta durante su **TTL** y se la entrega al cliente.
 
-> **[DATO CLAVE EXAMEN]** El DNS usa el **puerto 53**. **UDP** para las consultas ordinarias (rápido, sin conexión) y **TCP** cuando la respuesta **excede el tamaño admisible** —respuesta truncada, marcada con el bit **TC**— y **siempre** para las **transferencias de zona** entre servidores autoritativos (**AXFR** completa, **IXFR** incremental). Que las transferencias de zona vayan por TCP y estén restringidas es además una medida de seguridad: una **AXFR abierta** entrega a un atacante el mapa completo de la organización.
+> **[DATO CLAVE]** El DNS usa el **puerto 53**. **UDP** para las consultas ordinarias (rápido, sin conexión) y **TCP** cuando la respuesta **excede el tamaño admisible** —respuesta truncada, marcada con el bit **TC**— y **siempre** para las **transferencias de zona** entre servidores autoritativos (**AXFR** completa, **IXFR** incremental). Que las transferencias de zona vayan por TCP y estén restringidas es además una medida de seguridad: una **AXFR abierta** entrega a un atacante el mapa completo de la organización.
 
 **Tipos de servidor y de registro.**
 
@@ -376,22 +376,22 @@ Resolución completa de `sede.madrid.es`:
 | **SRV** | Servicio, protocolo, puerto y destino |
 | **CAA** | **Qué autoridades de certificación** pueden emitir certificados para el dominio |
 
-**Seguridad del DNS.** El DNS original **no autentica nada**: cualquiera que se adelante con una respuesta falsa puede desviar a un usuario a un servidor impostor (**envenenamiento de caché**, del que el ataque de **Kaminsky** en 2008 fue el caso canónico). Las respuestas también viajan **en claro**, de modo que quien observe la red sabe qué sitios visita cada usuario. **Son dos problemas distintos con dos soluciones distintas**, y esa distinción es una pregunta segura. Ver **diagrama D9**.
+**Seguridad del DNS.** El DNS original **no autentica nada**: cualquiera que se adelante con una respuesta falsa puede desviar a un usuario a un servidor impostor (**envenenamiento de caché**, del que el ataque de **Kaminsky** en 2008 fue el caso canónico). Las respuestas también viajan **en claro**, de modo que quien observe la red sabe qué sitios visita cada usuario. **Son dos problemas distintos con dos soluciones distintas**, y esa distinción es clave. Ver **diagrama D9**.
 
-> **[DATO CLAVE EXAMEN]** **DNSSEC** (RFC 4033-4035) **firma digitalmente** las respuestas y encadena la confianza desde la raíz: aporta **autenticidad e integridad** del dato, y **no aporta confidencialidad** (las respuestas siguen viajando legibles). **DoT** (*DNS over TLS*, **RFC 7858**, puerto **TCP 853**) y **DoH** (*DNS over HTTPS*, **RFC 8484**, sobre **HTTPS/443**) **cifran el transporte** de la consulta: aportan **confidencialidad**, y **no garantizan** que el dato de la zona sea auténtico. Son **complementarios**. A julio de 2026, **1.348 de los 1.437 TLD** de la raíz estaban firmados con DNSSEC (≈ 93,8 %), pero la adopción **en los dominios de segundo nivel sigue siendo minoritaria**.
+> **[DATO CLAVE]** **DNSSEC** (RFC 4033-4035) **firma digitalmente** las respuestas y encadena la confianza desde la raíz: aporta **autenticidad e integridad** del dato, y **no aporta confidencialidad** (las respuestas siguen viajando legibles). **DoT** (*DNS over TLS*, **RFC 7858**, puerto **TCP 853**) y **DoH** (*DNS over HTTPS*, **RFC 8484**, sobre **HTTPS/443**) **cifran el transporte** de la consulta: aportan **confidencialidad**, y **no garantizan** que el dato de la zona sea auténtico. Son **complementarios**. A julio de 2026, **1.348 de los 1.437 TLD** de la raíz estaban firmados con DNSSEC (≈ 93,8 %), pero la adopción **en los dominios de segundo nivel sigue siendo minoritaria**.
 
 Otras amenazas y contramedidas que conviene citar: el **secuestro de dominio** (robo de las credenciales del registrador; se mitiga con **bloqueo de registro** y doble factor), el **typosquatting** y los **dominios homógrafos** con caracteres visualmente idénticos, y el **túnel DNS** (*DNS tunneling*), técnica de exfiltración que saca datos codificados en consultas y que se detecta vigilando volumen y entropía de las peticiones.
 
-> **[EJEMPLO AYTO MADRID]** El DNS es un **punto único de fallo con apariencia inofensiva**. Si `madrid.es` deja de resolverse, no se cae ningún servidor: simplemente **nadie los encuentra**, y el efecto para la ciudadanía es idéntico a una caída total. De ahí tres exigencias prácticas en un ayuntamiento: **servidores autoritativos redundantes** en emplazamientos y redes distintas; **vigilancia de la fecha de renovación** del dominio (una caducidad por descuido administrativo ha tumbado servicios públicos en más de una ocasión); y **registro CAA** publicado, para que ninguna autoridad de certificación distinta de la contratada pueda emitir un certificado válido para el dominio municipal.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** El DNS es un **punto único de fallo con apariencia inofensiva**. Si `madrid.es` deja de resolverse, no se cae ningún servidor: simplemente **nadie los encuentra**, y el efecto para la ciudadanía es idéntico a una caída total. De ahí tres exigencias prácticas en un ayuntamiento: **servidores autoritativos redundantes** en emplazamientos y redes distintas; **vigilancia de la fecha de renovación** del dominio (una caducidad por descuido administrativo ha tumbado servicios públicos en más de una ocasión); y **registro CAA** publicado, para que ninguna autoridad de certificación distinta de la contratada pueda emitir un certificado válido para el dominio municipal.
 
-> **[REFERENCIA CRUZADA]** La administración práctica de los servicios de red en el ámbito local —incluidos DNS y DHCP internos, la monitorización y el control de tráfico— corresponde al **Tema 30**. Los dispositivos de interconexión (conmutadores, encaminadores, puntos de acceso) se estudian en el **Tema 37**.
+> **[RELACIÓN CON OTROS TEMAS]** La administración práctica de los servicios de red en el ámbito local —incluidos DNS y DHCP internos, la monitorización y el control de tráfico— corresponde al **Tema 30**. Los dispositivos de interconexión (conmutadores, encaminadores, puntos de acceso) se estudian en el **Tema 37**.
 
 ---
 ## 3. Principales servicios de Internet
 
-Antes de entrar en cada uno, conviene fijar el mapa completo de puertos, porque es **la tabla más rentable de todo el tema**: se pregunta casi siempre, y se memoriza en diez minutos.
+Antes de entrar en cada uno, conviene fijar el mapa completo de puertos, porque es **la tabla más rentable de todo el tema**: se memoriza en diez minutos.
 
-> **[DATO CLAVE EXAMEN]** La tabla de puertos siguiente es material de memorización directa: se pregunta casi siempre y no admite razonamiento, solo repaso.
+> **[DATO CLAVE]** La tabla de puertos siguiente es material de memorización directa: no admite razonamiento, solo repaso.
 
 | Servicio | Puerto en claro | Puerto seguro |
 |---|---|---|
@@ -415,7 +415,7 @@ Antes de entrar en cada uno, conviene fijar el mapa completo de puertos, porque 
 
 #### 3.1.1. Correo electrónico y sus protocolos
 
-**La arquitectura del correo.** El correo electrónico es **el servicio más antiguo de Internet en uso continuo**: el primer mensaje entre ordenadores distintos lo envió **Ray Tomlinson en 1971**, y suya es la decisión de usar el símbolo **`@`** para separar el usuario del sistema. Su arquitectura sigue siendo la de entonces, con cuatro piezas cuyos nombres se preguntan. Ver **diagrama D10**.
+**La arquitectura del correo.** El correo electrónico es **el servicio más antiguo de Internet en uso continuo**: el primer mensaje entre ordenadores distintos lo envió **Ray Tomlinson en 1971**, y suya es la decisión de usar el símbolo **`@`** para separar el usuario del sistema. Su arquitectura sigue siendo la de entonces, con cuatro piezas que conviene saber nombrar. Ver **diagrama D10**.
 
 | Sigla | Nombre | Qué es |
 |---|---|---|
@@ -429,7 +429,7 @@ Antes de entrar en cada uno, conviene fijar el mapa completo de puertos, porque 
 - **SMTP** (*Simple Mail Transfer Protocol*, **RFC 5321**) es el protocolo de **envío y tránsito**: mueve el mensaje del cliente al servidor y de servidor a servidor. Es un protocolo **de empuje** (*push*).
 - **POP3** (*Post Office Protocol v3*, **RFC 1939**) e **IMAP** (*Internet Message Access Protocol v4rev2*, **RFC 9051**) son protocolos de **acceso al buzón**, es decir, **de recogida** (*pull*). **No sirven para enviar**.
 
-> **[DATO CLAVE EXAMEN]** El error más penalizado del bloque: **«el correo se envía con SMTP y se recibe con POP3 o IMAP»** es la formulación correcta. SMTP **no descarga** nada y POP3/IMAP **no envían** nada. Un cliente de correo configurado necesita **siempre las dos** cosas: un servidor de salida (SMTP) y uno de entrada (POP3 o IMAP).
+> **[DATO CLAVE]** El error más penalizado del bloque: **«el correo se envía con SMTP y se recibe con POP3 o IMAP»** es la formulación correcta. SMTP **no descarga** nada y POP3/IMAP **no envían** nada. Un cliente de correo configurado necesita **siempre las dos** cosas: un servidor de salida (SMTP) y uno de entrada (POP3 o IMAP).
 
 **POP3 frente a IMAP**, que es la otra comparación segura:
 
@@ -446,7 +446,7 @@ En 2026 **IMAP es la opción por defecto** en cualquier organización, porque el
 
 **Estructura de un mensaje.** Un correo tiene **cabeceras** (`From`, `To`, `Cc`, `Bcc`, `Subject`, `Date`, `Message-ID`, y la traza de `Received` que van añadiendo los MTA) y **cuerpo**. El formato original solo admitía texto **ASCII de 7 bits**; **MIME** (*Multipurpose Internet Mail Extensions*, RFC 2045-2049) es la extensión que permite **acentos, otros alfabetos, HTML y archivos adjuntos**, codificando el binario en texto con **Base64** o *quoted-printable*.
 
-> **[DATO CLAVE EXAMEN]** Dos precisiones sobre las cabeceras: (1) la cabecera **`Bcc` no viaja** a los destinatarios —el servidor la elimina—, que es justamente lo que hace que la copia sea oculta; y (2) **la cabecera `From` la escribe el emisor y no está autenticada por SMTP**: esa es la raíz técnica de la **suplantación de remitente** (*spoofing*) y del **phishing**, y la razón de que existan SPF, DKIM y DMARC.
+> **[DATO CLAVE]** Dos precisiones sobre las cabeceras: (1) la cabecera **`Bcc` no viaja** a los destinatarios —el servidor la elimina—, que es justamente lo que hace que la copia sea oculta; y (2) **la cabecera `From` la escribe el emisor y no está autenticada por SMTP**: esa es la raíz técnica de la **suplantación de remitente** (*spoofing*) y del **phishing**, y la razón de que existan SPF, DKIM y DMARC.
 
 **Autenticación del remitente: SPF, DKIM y DMARC.** Los tres se publican como **registros DNS** del dominio y son la respuesta estándar a la suplantación:
 
@@ -456,22 +456,22 @@ En 2026 **IMAP es la opción por defecto** en cualquier organización, porque el
 | **DKIM** (RFC 6376) | **Firma criptográficamente** cabeceras y cuerpo con una clave privada; el receptor valida con la pública publicada en el DNS | Registro **TXT** en un selector | **Integridad** del mensaje y **autenticidad** del dominio firmante |
 | **DMARC** | Exige el **alineamiento** del `From` visible con SPF o DKIM, fija la **política** ante el fallo (`none`, `quarantine`, `reject`) e instaura **informes** | Registro **TXT** en `_dmarc` | La coherencia del conjunto |
 
-> **[DATO CLAVE EXAMEN]** **DMARC se reeditó en mayo de 2026**: los **RFC 9989** (especificación), **9990** (informes agregados) y **9991** (informes de fallo) **obsoletan el RFC 7489**, que era informativo, y elevan DMARC a *Standards Track*. Es un dato reciente y diferencial. Idea que se pregunta: **SPF y DKIM por sí solos no impiden el fraude**, porque validan el dominio de la envuelta o del firmante, no el que **ve el usuario**; es **DMARC** quien exige que coincidan y quien dice qué hacer si no coinciden.
+> **[DATO CLAVE]** **DMARC se reeditó en mayo de 2026**: los **RFC 9989** (especificación), **9990** (informes agregados) y **9991** (informes de fallo) **obsoletan el RFC 7489**, que era informativo, y elevan DMARC a *Standards Track*. Es un dato reciente y diferencial. Idea clave: **SPF y DKIM por sí solos no impiden el fraude**, porque validan el dominio de la envuelta o del firmante, no el que **ve el usuario**; es **DMARC** quien exige que coincidan y quien dice qué hacer si no coinciden.
 
 **Seguridad del transporte del correo.** Dos modelos que conviene no mezclar: **TLS implícito** (la conexión nace cifrada en un puerto dedicado: 465, 993, 995) y **STARTTLS** (la conexión nace en claro en el puerto ordinario y **se promociona** a cifrada con un comando; 587, 143, 110). STARTTLS es vulnerable al **ataque de degradación** (*stripping*) si un intermediario elimina el anuncio de la capacidad, por lo que el **RFC 8314** recomienda el **TLS implícito** para el acceso del usuario. Entre servidores, además, existen **MTA-STS** (RFC 8461) y **DANE** para exigir que el correo saliente vaya cifrado a los dominios que lo declaran.
 
-> **[EJEMPLO AYTO MADRID]** El correo del dominio municipal es un objetivo natural de suplantación: un mensaje que aparente venir de `@madrid.es` reclamando el pago de una tasa tiene una credibilidad enorme. Por eso la configuración correcta consiste en publicar **SPF, DKIM y DMARC con política `reject`** —no `none`, que solo observa—, y en el lado de entrada, filtrado antimalware y antispam. El ENS lo respalda con la medida **`mp.s.1` (protección del correo electrónico)**, exigible en las **tres categorías**, que obliga expresamente a proteger la información y los **datos de encaminamiento**, y a actuar frente al **correo no solicitado**, el **código dañino** y el **código móvil**, además de exigir **concienciación** del personal.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** El correo del dominio municipal es un objetivo natural de suplantación: un mensaje que aparente venir de `@madrid.es` reclamando el pago de una tasa tiene una credibilidad enorme. Por eso la configuración correcta consiste en publicar **SPF, DKIM y DMARC con política `reject`** —no `none`, que solo observa—, y en el lado de entrada, filtrado antimalware y antispam. El ENS lo respalda con la medida **`mp.s.1` (protección del correo electrónico)**, exigible en las **tres categorías**, que obliga expresamente a proteger la información y los **datos de encaminamiento**, y a actuar frente al **correo no solicitado**, el **código dañino** y el **código móvil**, además de exigir **concienciación** del personal.
 
-> **[REFERENCIA CRUZADA]** La firma electrónica de los mensajes (**S/MIME**, PGP) y los fundamentos criptográficos que la sustentan se estudian en el **Tema 32**. Las herramientas de trabajo en grupo y de comunicación corporativa, en el **Tema 40**.
+> **[RELACIÓN CON OTROS TEMAS]** La firma electrónica de los mensajes (**S/MIME**, PGP) y los fundamentos criptográficos que la sustentan se estudian en el **Tema 32**. Las herramientas de trabajo en grupo y de comunicación corporativa, en el **Tema 40**.
 
 #### 3.1.2. Transferencia de archivos
 
-**FTP.** El *File Transfer Protocol* está especificado en el **RFC 959** (octubre de 1985) y es, junto con el correo, uno de los servicios más antiguos. Su rasgo distintivo —y el más preguntado— es que usa **dos conexiones TCP separadas**:
+**FTP.** El *File Transfer Protocol* está especificado en el **RFC 959** (octubre de 1985) y es, junto con el correo, uno de los servicios más antiguos. Su rasgo distintivo es que usa **dos conexiones TCP separadas**:
 
 - **Canal de control**, **puerto 21**: permanece abierto toda la sesión y transporta comandos (`USER`, `PASS`, `LIST`, `RETR`, `STOR`) y respuestas numéricas.
 - **Canal de datos**, **puerto 20** en modo activo: se abre y se cierra **para cada transferencia**.
 
-> **[DATO CLAVE EXAMEN]** **Modo activo frente a modo pasivo**, que es una pregunta clásica:
+> **[DATO CLAVE]** **Modo activo frente a modo pasivo**:
 > - **Activo**: el cliente indica al servidor un puerto suyo con el comando `PORT`, y **es el servidor quien abre la conexión de datos hacia el cliente**, desde su puerto **20**. Problema: esa conexión **entrante** la bloquea normalmente el cortafuegos o el NAT del cliente.
 > - **Pasivo** (comando `PASV`): el servidor abre un puerto alto y se lo comunica al cliente, y **es el cliente quien abre las dos conexiones**. Es el modo **que funciona con NAT y cortafuegos**, y por eso el habitual hoy.
 >
@@ -486,11 +486,11 @@ En 2026 **IMAP es la opción por defecto** en cualquier organización, porque el
 | **SCP** | Copia segura sobre SSH, más simple y hoy desaconsejado frente a SFTP | **22** | SSH |
 | **HTTPS** | Descarga y subida por web, con la ventaja de atravesar cualquier cortafuegos | 443 | HTTP + TLS |
 
-> **[DATO CLAVE EXAMEN]** **SFTP ≠ FTPS.** FTPS **es FTP** envuelto en TLS y conserva sus dos canales (con los problemas de cortafuegos asociados). SFTP **es SSH**: un solo canal, puerto 22, autenticación por clave pública. Es la confusión más frecuente del epígrafe.
+> **[DATO CLAVE]** **SFTP ≠ FTPS.** FTPS **es FTP** envuelto en TLS y conserva sus dos canales (con los problemas de cortafuegos asociados). SFTP **es SSH**: un solo canal, puerto 22, autenticación por clave pública. Es la confusión más frecuente del epígrafe.
 
 En cuanto a servicios de intercambio, el panorama actual añade el **almacenamiento en la nube** con sincronización, las **API REST** para intercambio entre sistemas y, en el ámbito público español, mecanismos específicos como los **repositorios de intercambio de la red SARA** y las plataformas de intermediación de datos.
 
-> **[EJEMPLO AYTO MADRID]** Un caso municipal típico: el envío nocturno de un fichero de padrón a otro organismo. La solución correcta **no** es un FTP anónimo, sino **SFTP con autenticación por par de claves** (no por contraseña), acceso restringido por dirección de origen, **cifrado del fichero además del canal** si contiene datos personales, y registro de cada transferencia. Si además el fichero incluye datos personales, el **RGPD** exige medidas de seguridad apropiadas y el ENS lo cubre con **`mp.com.2`** (confidencialidad de las comunicaciones) y **`mp.si.2`** (criptografía en los soportes).
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un caso municipal típico: el envío nocturno de un fichero de padrón a otro organismo. La solución correcta **no** es un FTP anónimo, sino **SFTP con autenticación por par de claves** (no por contraseña), acceso restringido por dirección de origen, **cifrado del fichero además del canal** si contiene datos personales, y registro de cada transferencia. Si además el fichero incluye datos personales, el **RGPD** exige medidas de seguridad apropiadas y el ENS lo cubre con **`mp.com.2`** (confidencialidad de las comunicaciones) y **`mp.si.2`** (criptografía en los soportes).
 
 ### 3.2. Servicios de gestión y red
 
@@ -500,7 +500,7 @@ En cuanto a servicios de intercambio, el panorama actual añade el **almacenamie
 
 **SSH** (*Secure Shell*), creado por Tatu Ylönen en 1995 y normalizado en los **RFC 4251 a 4254**, los sustituye a todos. Escucha en el **puerto TCP 22** y ofrece confidencialidad, integridad y autenticación **mutua**. Ver **diagrama D12**.
 
-**Arquitectura en tres capas** —dato que se pregunta con frecuencia:
+**Arquitectura en tres capas**:
 
 1. **Capa de transporte** (RFC 4253): negocia algoritmos, **autentica al servidor** ante el cliente mediante su clave de host, establece las claves de sesión y aporta cifrado, integridad y compresión opcional.
 2. **Capa de autenticación de usuario** (RFC 4252): autentica al **cliente** ante el servidor.
@@ -512,19 +512,19 @@ En cuanto a servicios de intercambio, el panorama actual añade el **almacenamie
 - **Por par de claves** (*publickey*): el cliente guarda la **clave privada** —protegida por frase de paso— y el servidor tiene la **pública** en `authorized_keys`. Es el método recomendado.
 - **Por certificado de host o de usuario**, **GSSAPI/Kerberos** o **teclado interactivo** con segundo factor.
 
-> **[DATO CLAVE EXAMEN]** La **primera conexión** SSH muestra la huella (*fingerprint*) de la clave del servidor y pide confirmación: es el modelo de **confianza en el primer uso** (*trust on first use*). A partir de ahí la huella se guarda en `known_hosts`, y si cambia, el cliente **aborta la conexión** avisando de un posible ataque de intermediario. Ese aviso **nunca debe ignorarse a la ligera**: o han reinstalado el servidor, o alguien se está interponiendo.
+> **[DATO CLAVE]** La **primera conexión** SSH muestra la huella (*fingerprint*) de la clave del servidor y pide confirmación: es el modelo de **confianza en el primer uso** (*trust on first use*). A partir de ahí la huella se guarda en `known_hosts`, y si cambia, el cliente **aborta la conexión** avisando de un posible ataque de intermediario. Ese aviso **nunca debe ignorarse a la ligera**: o han reinstalado el servidor, o alguien se está interponiendo.
 
 **Túneles SSH.** La capa de conexión permite **reenvío de puertos**: **local** (`-L`, expone un puerto remoto en la máquina local), **remoto** (`-R`, expone un puerto local en el servidor) y **dinámico** (`-D`, actúa como proxy SOCKS). Es una capacidad muy útil para administración… y un riesgo de seguridad de primer orden, porque **un túnel inverso puede abrir un camino hacia el interior de la red saltándose el cortafuegos perimetral**. En un entorno administrado debe **deshabilitarse el reenvío** salvo necesidad justificada.
 
 **Buenas prácticas de bastionado de un servidor SSH**, que son materia de caso práctico: deshabilitar el **acceso directo del superusuario** (`PermitRootLogin no`), **deshabilitar la autenticación por contraseña** cuando se usan claves, restringir por origen, limitar los intentos, **registrar** todos los accesos y no publicar el servicio directamente en Internet, sino tras una **VPN** o un **bastión**.
 
-> **[REFERENCIA CRUZADA]** Las **VPN**, el acceso remoto seguro desde el exterior y la seguridad perimetral son el objeto propio del **Tema 36**. El **control remoto del puesto de usuario** (RDP, VNC, herramientas de asistencia) y la gestión de incidencias, del **Tema 29**.
+> **[RELACIÓN CON OTROS TEMAS]** Las **VPN**, el acceso remoto seguro desde el exterior y la seguridad perimetral son el objeto propio del **Tema 36**. El **control remoto del puesto de usuario** (RDP, VNC, herramientas de asistencia) y la gestión de incidencias, del **Tema 29**.
 
 #### 3.2.2. Configuración dinámica de red
 
 **Para qué sirve DHCP.** Configurar a mano la dirección IP, la máscara, la pasarela y el DNS de cada equipo es inviable a partir de unas decenas de puestos, y garantiza errores y duplicidades. El **DHCP** (*Dynamic Host Configuration Protocol*, **RFC 2131**) automatiza esa entrega. Es el sucesor de **BOOTP**, con el que mantiene compatibilidad de puertos. Ver **diagrama D13**.
 
-> **[DATO CLAVE EXAMEN]** DHCP usa **UDP**, con el **puerto 67 en el servidor** y el **68 en el cliente**. La secuencia se memoriza con el acrónimo **DORA**:
+> **[DATO CLAVE]** DHCP usa **UDP**, con el **puerto 67 en el servidor** y el **68 en el cliente**. La secuencia se memoriza con el acrónimo **DORA**:
 >
 > 1. **DISCOVER** — el cliente, que aún no tiene dirección, emite una **difusión** buscando servidores.
 > 2. **OFFER** — uno o varios servidores **ofrecen** una dirección con sus parámetros.
@@ -535,7 +535,7 @@ En cuanto a servicios de intercambio, el panorama actual añade el **almacenamie
 
 Además de la dirección, la máscara, la pasarela y los servidores DNS, DHCP entrega **opciones** numeradas: dominio de búsqueda, servidor NTP, servidor de arranque en red **PXE**, o la opción 82 de información del agente de retransmisión.
 
-**Dos piezas que se preguntan:**
+**Dos piezas clave:**
 
 - **Agente de retransmisión** (*DHCP relay*): como el DISCOVER es una **difusión** y las difusiones **no atraviesan encaminadores**, en redes con varias VLAN el encaminador actúa de **relay** y reenvía la petición al servidor central en unidifusión. Es la razón de que no haga falta un servidor DHCP por planta.
 - **Reserva o asignación estática**: se vincula una dirección concreta a una **MAC** determinada. Es lo adecuado para impresoras y servidores, que necesitan una dirección estable pero se siguen gestionando de forma central.
@@ -545,11 +545,11 @@ Además de la dirección, la máscara, la pasarela y los servidores DNS, DHCP en
 - **SLAAC** (*Stateless Address Autoconfiguration*, RFC 4862): el encaminador anuncia el **prefijo** de la red mediante mensajes **RA** (*Router Advertisement*, sobre ICMPv6) y **cada equipo se construye su propia dirección**. **Sin estado**: el encaminador no lleva registro de quién tiene qué.
 - **DHCPv6** (**RFC 9915**, enero de 2026, **STD 102**, que obsoleta el RFC 8415): funciona **con estado**, como el DHCP de IPv4, en los puertos **UDP 547** (servidor) y **546** (cliente). Existe también un modo **sin estado** que solo entrega parámetros (DNS, dominio) mientras la dirección la fija SLAAC.
 
-> **[DATO CLAVE EXAMEN]** Diferencia conceptual: en IPv4 **la dirección la asigna el servidor DHCP**; en IPv6 **puede asignársela el propio equipo** a partir del prefijo anunciado (SLAAC). Consecuencia para la Administración: **SLAAC dificulta la trazabilidad**, porque no hay un registro central de concesiones; en una red donde se exija saber quién tenía cada dirección en cada momento —requisito derivado de la dimensión de **trazabilidad** del ENS— hay que usar **DHCPv6 con estado** o complementar SLAAC con vigilancia de la tabla de vecinos.
+> **[DATO CLAVE]** Diferencia conceptual: en IPv4 **la dirección la asigna el servidor DHCP**; en IPv6 **puede asignársela el propio equipo** a partir del prefijo anunciado (SLAAC). Consecuencia para la Administración: **SLAAC dificulta la trazabilidad**, porque no hay un registro central de concesiones; en una red donde se exija saber quién tenía cada dirección en cada momento —requisito derivado de la dimensión de **trazabilidad** del ENS— hay que usar **DHCPv6 con estado** o complementar SLAAC con vigilancia de la tabla de vecinos.
 
 **Riesgos de seguridad.** DHCP no autentica: un **servidor DHCP no autorizado** (*rogue*) conectado a una toma de red puede repartir configuraciones falsas y convertirse en **intermediario** de todo el tráfico —basta con anunciarse como pasarela y como DNS—. La contramedida en la red conmutada es **DHCP snooping**, que solo admite respuestas DHCP por los puertos declarados de confianza; en IPv6, el equivalente frente a anuncios de encaminador falsos es **RA Guard**.
 
-> **[EJEMPLO AYTO MADRID]** En una oficina de atención a la ciudadanía, las tomas de red de la zona de público son el punto débil clásico: cualquiera puede enchufar un equipo. Las medidas habituales son **deshabilitar las tomas no usadas**, **DHCP snooping** y **RA Guard** en el conmutador de planta, autenticación de puerto **802.1X**, y VLAN separada para los equipos que no son del Ayuntamiento. El respaldo normativo está en **`mp.com.4`** del ENS, «**separación de flujos de información en la red**», que exige segregar el tráfico y que las comunicaciones inalámbricas vayan en un segmento propio.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** En una oficina de atención a la ciudadanía, las tomas de red de la zona de público son el punto débil clásico: cualquiera puede enchufar un equipo. Las medidas habituales son **deshabilitar las tomas no usadas**, **DHCP snooping** y **RA Guard** en el conmutador de planta, autenticación de puerto **802.1X**, y VLAN separada para los equipos que no son del Ayuntamiento. El respaldo normativo está en **`mp.com.4`** del ENS, «**separación de flujos de información en la red**», que exige segregar el tráfico y que las comunicaciones inalámbricas vayan en un segmento propio.
 
 ---
 ## 4. Protocolo HTTP
@@ -560,11 +560,11 @@ Además de la dirección, la máscara, la pasarela y los servidores DNS, DHCP en
 
 **Qué es HTTP.** El *HyperText Transfer Protocol* es el protocolo de **capa de aplicación** que sostiene la Web. Nació con ella, en el CERN, y su nombre se ha quedado corto: hoy no transfiere solo hipertexto, sino **cualquier recurso** —imágenes, vídeo, JSON de una API, formularios— y es el sustrato de los servicios web, de las aplicaciones móviles y de buena parte de la comunicación entre sistemas.
 
-> **[DATO CLAVE EXAMEN]** **La especificación vigente de HTTP no es el RFC 2616.** Aquel documento de 1999 fue sustituido en 2014 por la serie RFC 7230-7235, y esta, en **junio de 2022**, por la serie actual: **RFC 9110 (semántica, STD 97)**, **RFC 9111 (caché, STD 98)**, **RFC 9112 (HTTP/1.1, STD 99)**, **RFC 9113 (HTTP/2)** y **RFC 9114 (HTTP/3)**. La reorganización tiene una lógica que se pregunta: **la semántica se separó de la sintaxis de cada versión**, de modo que los métodos, los códigos de estado y las cabeceras son **los mismos** en HTTP/1.1, HTTP/2 y HTTP/3; lo que cambia entre versiones es **cómo se transmiten**, no qué significan.
+> **[DATO CLAVE]** **La especificación vigente de HTTP no es el RFC 2616.** Aquel documento de 1999 fue sustituido en 2014 por la serie RFC 7230-7235, y esta, en **junio de 2022**, por la serie actual: **RFC 9110 (semántica, STD 97)**, **RFC 9111 (caché, STD 98)**, **RFC 9112 (HTTP/1.1, STD 99)**, **RFC 9113 (HTTP/2)** y **RFC 9114 (HTTP/3)**. La reorganización tiene una lógica: **la semántica se separó de la sintaxis de cada versión**, de modo que los métodos, los códigos de estado y las cabeceras son **los mismos** en HTTP/1.1, HTTP/2 y HTTP/3; lo que cambia entre versiones es **cómo se transmiten**, no qué significan.
 
 **Modelo cliente-servidor y petición-respuesta.** HTTP funciona por **turnos**: el cliente (normalmente un navegador, pero también una aplicación o un servicio) envía una **petición** y el servidor devuelve una **respuesta**. El servidor **nunca inicia** la conversación —el *server push* de HTTP/2 fue un intento de romperlo que acabó desactivado en la práctica—, y cuando hace falta comunicación iniciada por el servidor se recurre a **WebSocket** (RFC 6455), a los eventos enviados por el servidor (SSE) o al sondeo.
 
-Entre ambos extremos puede haber **intermediarios**, y sus nombres se preguntan:
+Entre ambos extremos puede haber **intermediarios**:
 
 | Intermediario | Posición | Función |
 |---|---|---|
@@ -576,7 +576,7 @@ Entre ambos extremos puede haber **intermediarios**, y sus nombres se preguntan:
 
 **Sin estado: qué significa exactamente.** HTTP es **sin estado** (*stateless*): **cada petición se interpreta de forma independiente** y el servidor **no recuerda** por sí mismo nada de las anteriores. Es una decisión de diseño deliberada, no una carencia: permite que cualquier servidor de una granja atienda cualquier petición y es la razón de que la Web escale a miles de millones de usuarios.
 
-> **[DATO CLAVE EXAMEN]** No hay que confundir **sin estado** con **sin conexión**. HTTP es **sin estado** en todas sus versiones. En cuanto a la conexión: **HTTP/1.0** abría y cerraba una conexión TCP **por cada recurso**; **HTTP/1.1 introdujo las conexiones persistentes** (`keep-alive`) **como comportamiento por defecto**, de modo que varias peticiones reutilizan la misma conexión. Reutilizar la conexión **no** convierte a HTTP en un protocolo con estado: el estado de la **aplicación** (que el usuario está identificado, qué lleva en el carrito) hay que construirlo aparte, con **cookies**, **sesiones** o **tokens** (§4.2.2).
+> **[DATO CLAVE]** No hay que confundir **sin estado** con **sin conexión**. HTTP es **sin estado** en todas sus versiones. En cuanto a la conexión: **HTTP/1.0** abría y cerraba una conexión TCP **por cada recurso**; **HTTP/1.1 introdujo las conexiones persistentes** (`keep-alive`) **como comportamiento por defecto**, de modo que varias peticiones reutilizan la misma conexión. Reutilizar la conexión **no** convierte a HTTP en un protocolo con estado: el estado de la **aplicación** (que el usuario está identificado, qué lleva en el carrito) hay que construirlo aparte, con **cookies**, **sesiones** o **tokens** (§4.2.2).
 
 **La URL.** El identificador que HTTP usa para nombrar recursos es la **URI**, en su forma localizadora **URL** (RFC 3986):
 
@@ -586,7 +586,7 @@ https://sede.madrid.es:443/tramites/licencias?id=471&pag=2#requisitos
 esquema      autoridad  puerto     ruta          consulta   fragmento
 ```
 
-Dos detalles que se preguntan: el **fragmento** (lo que va tras `#`) **no se envía al servidor**, lo procesa el navegador; y la **cadena de consulta** (tras `?`) **sí viaja**, y por tanto queda registrada en los *logs* del servidor y del proxy —razón por la cual **nunca deben ponerse datos sensibles ni contraseñas en la URL**, aunque se use HTTPS—.
+Dos detalles: el **fragmento** (lo que va tras `#`) **no se envía al servidor**, lo procesa el navegador; y la **cadena de consulta** (tras `?`) **sí viaja**, y por tanto queda registrada en los *logs* del servidor y del proxy —razón por la cual **nunca deben ponerse datos sensibles ni contraseñas en la URL**, aunque se use HTTPS—.
 
 #### 4.1.2. Evolución desde HTTP/1.1 hasta HTTP/3
 
@@ -600,18 +600,18 @@ Ver **diagrama D15**.
 | **HTTP/2** | 2015; hoy **RFC 9113** | Protocolo **binario** en lugar de textual, **multiplexación** de varias corrientes (*streams*) sobre **una** conexión TCP, compresión de cabeceras **HPACK** (RFC 7541), priorización, *server push* | Persiste el bloqueo de cabecera de línea **en TCP**: la pérdida de **un** segmento detiene **todas** las corrientes |
 | **HTTP/3** | 2022, **RFC 9114** | Cambia el transporte: se apoya en **QUIC** (**RFC 9000**) sobre **UDP**. **Elimina** el bloqueo de cabecera de línea del transporte, cifrado **obligatorio** e integrado, compresión **QPACK** (RFC 9204), **establecimiento en 1-RTT (0-RTT en reanudación)** y **migración de conexión** por identificador | Requiere UDP abierto; dificulta la inspección en los equipos intermedios |
 
-> **[DATO CLAVE EXAMEN]** **El bloqueo de cabecera de línea explica toda la evolución de HTTP**, y es la pregunta conceptual del epígrafe:
+> **[DATO CLAVE]** **El bloqueo de cabecera de línea explica toda la evolución de HTTP**, y es la idea conceptual del epígrafe:
 > - En **HTTP/1.1** el bloqueo es **de aplicación**: por una conexión las respuestas van en orden, y una lenta retrasa a las siguientes (por eso los navegadores abrían **6 conexiones por dominio**).
 > - **HTTP/2** lo resuelve **en la capa de aplicación** con multiplexación… pero **no en TCP**: como TCP garantiza la entrega ordenada, un segmento perdido bloquea a **todas** las corrientes que viajan por esa conexión.
 > - **HTTP/3** lo resuelve del todo porque **QUIC gestiona cada corriente de forma independiente** sobre UDP: la pérdida en una no detiene a las demás.
 
 **Qué es QUIC.** Un protocolo de transporte publicado como **RFC 9000** (mayo de 2021) que se ejecuta **sobre UDP** y reimplementa en el **espacio de usuario** lo que TCP hace en el núcleo: fiabilidad, orden por corriente, control de congestión. Su rasgo definitorio es que **integra TLS 1.3 en el propio establecimiento** (RFC 9001): no hay un saludo TCP y luego otro TLS, sino **uno solo**. De ahí que HTTP/3 sea **siempre cifrado**: no existe un «HTTP/3 en claro».
 
-> **[DATO CLAVE EXAMEN]** Dos ventajas de QUIC que se preguntan: (1) **0-RTT en la reanudación**, que permite enviar datos con el primer paquete cuando ya se ha hablado antes con ese servidor —a costa de perder la protección frente a **repetición** (*replay*), por lo que solo debe usarse con peticiones **idempotentes**—; y (2) la **migración de conexión**: como la conexión se identifica por un **identificador propio** y no por la cuádrupla IP/puerto, un móvil que pasa de Wi-Fi a red móvil **conserva la sesión** sin reconectar.
+> **[DATO CLAVE]** Dos ventajas de QUIC: (1) **0-RTT en la reanudación**, que permite enviar datos con el primer paquete cuando ya se ha hablado antes con ese servidor —a costa de perder la protección frente a **repetición** (*replay*), por lo que solo debe usarse con peticiones **idempotentes**—; y (2) la **migración de conexión**: como la conexión se identifica por un **identificador propio** y no por la cuádrupla IP/puerto, un móvil que pasa de Wi-Fi a red móvil **conserva la sesión** sin reconectar.
 
 **Cómo se negocia la versión.** No hay una elección manual: **HTTP/2 se negocia dentro del saludo TLS mediante la extensión ALPN** (*Application-Layer Protocol Negotiation*, RFC 7301); **HTTP/3 se descubre** porque el servidor lo anuncia en la cabecera **`Alt-Svc`** o en un registro DNS de tipo **HTTPS**, y el cliente **prueba** entonces por UDP y conserva HTTP/2 como respaldo. Ese matiz explica por qué las estadísticas de adopción varían tanto según se mida «sitios que lo anuncian» o «peticiones realmente servidas».
 
-> **[EJEMPLO AYTO MADRID]** Para una sede electrónica, migrar a HTTP/2 o HTTP/3 no es una cuestión estética: mejora de forma perceptible la carga de páginas con muchos recursos —hojas de estilo, tipografías, iconos, formularios— y sobre todo la experiencia en **red móvil**, que es como accede una parte creciente de la ciudadanía. Como HTTP/2 y HTTP/3 exigen TLS en la práctica, el requisito previo es tener **HTTPS bien configurado** (§5), y el despliegue típico se hace en el **proxy inverso** o el balanceador, sin tocar la aplicación.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Para una sede electrónica, migrar a HTTP/2 o HTTP/3 no es una cuestión estética: mejora de forma perceptible la carga de páginas con muchos recursos —hojas de estilo, tipografías, iconos, formularios— y sobre todo la experiencia en **red móvil**, que es como accede una parte creciente de la ciudadanía. Como HTTP/2 y HTTP/3 exigen TLS en la práctica, el requisito previo es tener **HTTPS bien configurado** (§5), y el despliegue típico se hace en el **proxy inverso** o el balanceador, sin tocar la aplicación.
 
 ### 4.2. Mensajes HTTP y mecanismos de estado
 
@@ -643,7 +643,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 <!DOCTYPE html> ...
 ```
 
-**Los métodos.** El método declara la **acción** solicitada sobre el recurso. Las dos propiedades que los clasifican —y que son la pregunta más repetida del epígrafe— son la **seguridad** y la **idempotencia**:
+**Los métodos.** El método declara la **acción** solicitada sobre el recurso. Las dos propiedades que los clasifican son la **seguridad** y la **idempotencia**:
 
 | Método | ¿Seguro? | ¿Idempotente? | ¿Cuerpo? | Uso |
 |---|---|---|---|---|
@@ -657,9 +657,9 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 | **DELETE** | **No** | **Sí** | Opcional | Borrar el recurso |
 | **CONNECT** | No | No | — | Establecer un **túnel** (proxy HTTPS) |
 
-> **[DATO CLAVE EXAMEN]** Definiciones exactas: **seguro** significa que el método **no pretende modificar** el estado del servidor (es de solo lectura). **Idempotente** significa que **repetir la misma petición varias veces produce el mismo efecto que hacerla una vez**. Todo método seguro es idempotente, pero **no al revés**: `PUT` y `DELETE` son **idempotentes y no seguros** (borrar dos veces deja el recurso igualmente borrado). **`POST` no es ninguna de las dos cosas** —por eso el navegador avisa al recargar un formulario enviado— y **`PATCH` no es idempotente**. Trampa habitual: presentar `DELETE` como «no idempotente porque el segundo intento da 404»; el código de respuesta puede cambiar, pero **el efecto sobre el servidor es el mismo**, y la idempotencia se define por el efecto.
+> **[DATO CLAVE]** Definiciones exactas: **seguro** significa que el método **no pretende modificar** el estado del servidor (es de solo lectura). **Idempotente** significa que **repetir la misma petición varias veces produce el mismo efecto que hacerla una vez**. Todo método seguro es idempotente, pero **no al revés**: `PUT` y `DELETE` son **idempotentes y no seguros** (borrar dos veces deja el recurso igualmente borrado). **`POST` no es ninguna de las dos cosas** —por eso el navegador avisa al recargar un formulario enviado— y **`PATCH` no es idempotente**. Trampa habitual: presentar `DELETE` como «no idempotente porque el segundo intento da 404»; el código de respuesta puede cambiar, pero **el efecto sobre el servidor es el mismo**, y la idempotencia se define por el efecto.
 
-> **[DATO CLAVE EXAMEN]** **GET frente a POST** en un formulario: con `GET` los datos viajan en la **URL** (visibles, registrados en los *logs*, limitados en longitud, guardables en marcadores y en el historial); con `POST` viajan en el **cuerpo**. Precisión importante: **`POST` no cifra nada**. Lo único que protege el contenido es **HTTPS**. `POST` simplemente evita que el dato quede escrito en la URL.
+> **[DATO CLAVE]** **GET frente a POST** en un formulario: con `GET` los datos viajan en la **URL** (visibles, registrados en los *logs*, limitados en longitud, guardables en marcadores y en el historial); con `POST` viajan en el **cuerpo**. Precisión importante: **`POST` no cifra nada**. Lo único que protege el contenido es **HTTPS**. `POST` simplemente evita que el dato quede escrito en la URL.
 
 **Los códigos de estado.** Un número de tres cifras cuya **primera cifra indica la familia**:
 
@@ -671,7 +671,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 | **4xx** | **Error del cliente** | 400 Bad Request · **401 Unauthorized** · **403 Forbidden** · **404 Not Found** · 405 Method Not Allowed · 409 Conflict · 413 Content Too Large · **429 Too Many Requests** |
 | **5xx** | **Error del servidor** | **500 Internal Server Error** · 501 Not Implemented · **502 Bad Gateway** · **503 Service Unavailable** · **504 Gateway Timeout** |
 
-> **[DATO CLAVE EXAMEN]** Las tres parejas que más se preguntan:
+> **[DATO CLAVE]** Las tres parejas clave:
 > - **401 frente a 403**: **401 = no estás autenticado** (o tus credenciales no valen); vuelve a identificarte. **403 = estás autenticado pero no tienes permiso**; volver a identificarte no servirá de nada. Autenticación frente a autorización.
 > - **301 frente a 302**: **301 es permanente** —el navegador y los buscadores **actualizan el destino** y la cachean de forma agresiva, por lo que **equivocarse es caro**— y **302/307 es temporal**.
 > - **502 frente a 504**: **502** es una respuesta **inválida** del servidor de origen a la pasarela; **504** es que el origen **no respondió a tiempo**. Ambos los devuelve el intermediario, no la aplicación.
@@ -688,7 +688,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 **La caché** (RFC 9111) se controla sobre todo con **`Cache-Control`** (`no-store`, `no-cache`, `private`, `public`, `max-age`) y con la **validación condicional**: el servidor envía `ETag` o `Last-Modified`, y el cliente pregunta después con `If-None-Match` o `If-Modified-Since`; si nada ha cambiado, el servidor responde **`304 Not Modified` sin cuerpo**, ahorrando la transferencia.
 
-> **[DATO CLAVE EXAMEN]** Diferencia entre **`no-cache`** y **`no-store`**, que se pregunta con trampa: **`no-cache` sí permite almacenar** la respuesta, pero obliga a **revalidarla** con el servidor antes de reutilizarla. **`no-store` prohíbe almacenarla** en cualquier caché. Para páginas con **datos personales** de una sede electrónica, la correcta es **`no-store`** (junto con `private`), porque impide que la respuesta quede en la caché del navegador de un puesto compartido.
+> **[DATO CLAVE]** Diferencia entre **`no-cache`** y **`no-store`**, que tiene trampa: **`no-cache` sí permite almacenar** la respuesta, pero obliga a **revalidarla** con el servidor antes de reutilizarla. **`no-store` prohíbe almacenarla** en cualquier caché. Para páginas con **datos personales** de una sede electrónica, la correcta es **`no-store`** (junto con `private`), porque impide que la respuesta quede en la caché del navegador de un puesto compartido.
 
 **Cookies.** Como HTTP no tiene estado, el estado se transporta con **cookies** (**RFC 6265**): el servidor envía `Set-Cookie: nombre=valor; atributos` y el navegador **devuelve** `Cookie: nombre=valor` en cada petición siguiente al mismo ámbito. Ver **diagrama D16**.
 
@@ -700,7 +700,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 | **`HttpOnly`** | **Inaccesible desde JavaScript** → mitiga el robo por **XSS** |
 | **`SameSite`** (`Strict`, `Lax`, `None`) | Controla el envío en peticiones de **origen cruzado** → mitiga **CSRF** |
 
-> **[DATO CLAVE EXAMEN]** Combinación mínima para una cookie de sesión de un servicio público: **`Secure` + `HttpOnly` + `SameSite=Lax` (o `Strict`)**, con identificador **aleatorio, largo e impredecible**, **renovado tras el inicio de sesión** —para evitar la **fijación de sesión**— y con **caducidad por inactividad**. Nótese que `Secure` y `HttpOnly` protegen frente a amenazas **distintas**: la primera frente a la interceptación en red, la segunda frente al robo por *script*.
+> **[DATO CLAVE]** Combinación mínima para una cookie de sesión de un servicio público: **`Secure` + `HttpOnly` + `SameSite=Lax` (o `Strict`)**, con identificador **aleatorio, largo e impredecible**, **renovado tras el inicio de sesión** —para evitar la **fijación de sesión**— y con **caducidad por inactividad**. Nótese que `Secure` y `HttpOnly` protegen frente a amenazas **distintas**: la primera frente a la interceptación en red, la segunda frente al robo por *script*.
 
 **Sesiones frente a tokens.** Dos modelos de mantener el estado:
 
@@ -718,7 +718,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 | **`Referrer-Policy`** | Limita qué URL de origen se filtra al navegar a otro sitio |
 | **`Permissions-Policy`** | Restringe el acceso a cámara, micrófono o geolocalización |
 
-> **[REFERENCIA CRUZADA]** Las vulnerabilidades web que estas cabeceras mitigan —**XSS**, **CSRF**, inyección, control de acceso roto— y su catálogo **OWASP** se desarrollan en el **Tema 23** (aplicaciones web) y en el **Tema 25** (seguridad en el desarrollo). Las arquitecturas de servicios web (REST, SOAP) y sus protocolos, en el **Tema 22**.
+> **[RELACIÓN CON OTROS TEMAS]** Las vulnerabilidades web que estas cabeceras mitigan —**XSS**, **CSRF**, inyección, control de acceso roto— y su catálogo **OWASP** se desarrollan en el **Tema 23** (aplicaciones web) y en el **Tema 25** (seguridad en el desarrollo). Las arquitecturas de servicios web (REST, SOAP) y sus protocolos, en el **Tema 22**.
 
 ---
 ## 5. Protocolos SSL/TLS y HTTPS
@@ -737,7 +737,7 @@ Lo que TLS **no** hace: no protege el equipo del usuario ni el del servidor, no 
 
 **De SSL a TLS: la historia y las versiones.** **SSL** (*Secure Sockets Layer*) fue creado por **Netscape**: la versión 1.0 nunca se publicó, la **2.0** salió en 1995 con fallos graves y la **3.0**, en 1996, fue un rediseño completo. En **1999** el IETF toma el relevo, y para evitar una marca comercial lo renombra **TLS 1.0** (RFC 2246), que es esencialmente SSL 3.1.
 
-> **[DATO CLAVE EXAMEN]** Estado de las versiones de SSL y TLS en 2026, que se pregunta con precisión: ver la tabla siguiente.
+> **[DATO CLAVE]** Estado de las versiones de SSL y TLS en 2026: ver la tabla siguiente.
 
 | Versión | Año | Estado en 2026 |
 |---|---|---|
@@ -750,7 +750,7 @@ Lo que TLS **no** hace: no protege el equipo del usuario ni el del servidor, no 
 
 Consecuencia práctica: **«SSL» hoy es solo un nombre coloquial**. Cuando alguien dice «certificado SSL» quiere decir **certificado TLS**, y cuando un pliego exige «SSL/TLS» está exigiendo, en rigor, **TLS 1.2 o superior**. Todo lo que se llame SSL de verdad está prohibido.
 
-> **[DATO CLAVE EXAMEN]** **Dato reciente y diferencial.** En **julio de 2026** el IETF publicó el **RFC 9846**, que reedita la especificación de **TLS 1.3** y **obsoleta el RFC 8446** —la referencia que citan todos los temarios— **y también el RFC 5246**, que especificaba **TLS 1.2**, junto con los RFC 5077, 6961, 7627 y 8422. Hay que entender bien qué significa: **no prohíbe TLS 1.2**, que sigue siendo admisible; lo que hace es **unificar la especificación en un solo documento** y fijar en él requisitos adicionales para las implementaciones de TLS 1.2 (protección frente a degradación de versión, `supported_versions`, RSASSA-PSS, y la sustitución de la terminología *master* por *main*). Al citar TLS en un documento técnico en 2026, **la referencia correcta es el RFC 9846**.
+> **[DATO CLAVE]** **Dato reciente y diferencial.** En **julio de 2026** el IETF publicó el **RFC 9846**, que reedita la especificación de **TLS 1.3** y **obsoleta el RFC 8446** —la referencia que citan todos los temarios— **y también el RFC 5246**, que especificaba **TLS 1.2**, junto con los RFC 5077, 6961, 7627 y 8422. Hay que entender bien qué significa: **no prohíbe TLS 1.2**, que sigue siendo admisible; lo que hace es **unificar la especificación en un solo documento** y fijar en él requisitos adicionales para las implementaciones de TLS 1.2 (protección frente a degradación de versión, `supported_versions`, RSASSA-PSS, y la sustitución de la terminología *master* por *main*). Al citar TLS en un documento técnico en 2026, **la referencia correcta es el RFC 9846**.
 
 **Arquitectura en dos niveles.** TLS se organiza en un protocolo de base y varios subprotocolos que viajan dentro de él. Ver **diagrama D17**.
 
@@ -762,7 +762,7 @@ Consecuencia práctica: **«SSL» hoy es solo un nombre coloquial**. Cuando algu
 | **Change Cipher Spec** | Señalaba el cambio a los parámetros recién negociados. **En TLS 1.3 desaparece funcionalmente** y solo se conserva como relleno por compatibilidad con equipos intermedios |
 | **Application Data** | Los datos de la aplicación ya protegidos |
 
-> **[DATO CLAVE EXAMEN]** La pregunta típica es cuál es el subprotocolo **fundamental** o de más bajo nivel: es el **Record Protocol**, porque **encapsula a todos los demás**, incluido el Handshake. Y el que **acuerda las claves** es el **Handshake**.
+> **[DATO CLAVE]** El subprotocolo **fundamental** o de más bajo nivel es el **Record Protocol**, porque **encapsula a todos los demás**, incluido el Handshake. Y el que **acuerda las claves** es el **Handshake**.
 
 **El saludo TLS 1.2 (dos vueltas).** Simplificado:
 
@@ -773,16 +773,16 @@ Consecuencia práctica: **«SSL» hoy es solo un nombre coloquial**. Cuando algu
 
 **El saludo TLS 1.3 (una vuelta).** El cambio de diseño es sustancial: el cliente **ya envía en el ClientHello su parte del intercambio Diffie-Hellman** (extensión `key_share`) apostando por los grupos más probables, de modo que el servidor puede responder con su parte, el certificado **ya cifrado** y su `Finished` en un solo viaje: **1-RTT**. Si ya hubo conexión previa, se puede reanudar con **0-RTT**.
 
-> **[DATO CLAVE EXAMEN]** Las cinco novedades de **TLS 1.3** que se preguntan:
+> **[DATO CLAVE]** Las cinco novedades de **TLS 1.3**:
 > 1. **Saludo en 1-RTT** (0-RTT en reanudación) frente a los 2-RTT de TLS 1.2.
 > 2. **Confidencialidad directa obligatoria** (*forward secrecy*): **se elimina el intercambio de claves RSA estático**; solo hay Diffie-Hellman efímero (**ECDHE/DHE**). Consecuencia: **comprometer la clave privada del servidor no permite descifrar el tráfico capturado en el pasado**.
 > 3. **Solo cifrado autenticado con datos asociados (AEAD)**: AES-GCM, AES-CCM, ChaCha20-Poly1305. Se eliminan RC4, 3DES, CBC con MAC-then-encrypt, y también la **compresión** (por CRIME) y la **renegociación**.
 > 4. **La suite de cifrado se simplifica**: ya solo nombra el algoritmo de registro y el hash; el intercambio de claves y la autenticación se negocian aparte por extensiones.
 > 5. **Todo lo posterior al ServerHello va cifrado**, incluido el **certificado del servidor**.
 >
-> Trampa frecuente: preguntar si TLS 1.3 «elimina RSA». **No**: elimina RSA **como método de intercambio de claves**; RSA **sigue admitido para la firma** del certificado.
+> Trampa frecuente: creer que TLS 1.3 «elimina RSA». **No**: elimina RSA **como método de intercambio de claves**; RSA **sigue admitido para la firma** del certificado.
 
-**La suite de cifrado.** En TLS 1.2 se lee de izquierda a derecha, y saber desmenuzarla es un ejercicio de examen:
+**La suite de cifrado.** En TLS 1.2 se lee de izquierda a derecha, y saber desmenuzarla es un buen ejercicio:
 
 ```
 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -798,13 +798,13 @@ TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 
 En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA256`**, porque lo demás se negocia por separado.
 
-> **[DATO CLAVE EXAMEN]** **Migración post-cuántica: el estado real en 2026.** Los navegadores mayoritarios negocian ya por defecto un intercambio de claves **híbrido** que combina el clásico **X25519** con el algoritmo post-cuántico **ML-KEM-768** (FIPS 203), bajo el nombre **X25519MLKEM768** (**valor IANA 4588, `0x11EC`**). Dos precisiones que casi ningún temario recoge: (1) su especificación, `draft-ietf-tls-ecdhe-mlkem`, **todavía no era RFC en agosto de 2026** —estaba aprobada y en cola de publicación—, y (2) lo que se protege es la **clave de sesión**, no la **firma**: los certificados siguen firmados con **RSA o ECDSA** clásicos. El motivo de desplegarlo ya es el ataque de **«cosechar ahora, descifrar después»**: quien capture hoy tráfico cifrado podría descifrarlo en el futuro con un ordenador cuántico. En España, los algoritmos admisibles en sistemas del ENS los fija la guía **CCN-STIC-807**, que es la referencia que hay que citar en un pliego.
+> **[DATO CLAVE]** **Migración post-cuántica: el estado real en 2026.** Los navegadores mayoritarios negocian ya por defecto un intercambio de claves **híbrido** que combina el clásico **X25519** con el algoritmo post-cuántico **ML-KEM-768** (FIPS 203), bajo el nombre **X25519MLKEM768** (**valor IANA 4588, `0x11EC`**). Dos precisiones que casi ningún temario recoge: (1) su especificación, `draft-ietf-tls-ecdhe-mlkem`, **todavía no era RFC en agosto de 2026** —estaba aprobada y en cola de publicación—, y (2) lo que se protege es la **clave de sesión**, no la **firma**: los certificados siguen firmados con **RSA o ECDSA** clásicos. El motivo de desplegarlo ya es el ataque de **«cosechar ahora, descifrar después»**: quien capture hoy tráfico cifrado podría descifrarlo en el futuro con un ordenador cuántico. En España, los algoritmos admisibles en sistemas del ENS los fija la guía **CCN-STIC-807**, que es la referencia que hay que citar en un pliego.
 
 #### 5.1.2. Criptografía, certificados digitales e infraestructura PKI
 
 **El cifrado híbrido.** TLS combina las dos familias criptográficas porque cada una resuelve la mitad del problema: la **asimétrica** (RSA, ECDSA, EdDSA, Diffie-Hellman) es lenta pero permite **acordar un secreto con un desconocido** y **autenticar**; la **simétrica** (AES, ChaCha20) es rápida pero exige compartir la clave antes. La solución es el **sobre digital**: el saludo usa criptografía **asimétrica** para acordar una **clave de sesión**, y todo el tráfico posterior se cifra con esa clave, de forma **simétrica**.
 
-> **[REFERENCIA CRUZADA]** Los fundamentos de la criptografía simétrica y asimétrica, las funciones hash, la PKI completa y los **mecanismos de firma digital** se desarrollan en el **Tema 32**. Aquí se tratan solo en la medida en que TLS y HTTPS los usan.
+> **[RELACIÓN CON OTROS TEMAS]** Los fundamentos de la criptografía simétrica y asimétrica, las funciones hash, la PKI completa y los **mecanismos de firma digital** se desarrollan en el **Tema 32**. Aquí se tratan solo en la medida en que TLS y HTTPS los usan.
 
 **El certificado X.509.** Un certificado digital (**X.509 v3**, **RFC 5280**) es un documento electrónico que **vincula una identidad con una clave pública** y que va **firmado por una autoridad de certificación (AC)**. Sus campos esenciales:
 
@@ -818,9 +818,9 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 | **Extensiones** | **`subjectAltName` (SAN)**, `keyUsage`, `extendedKeyUsage`, `basicConstraints`, `cRLDistributionPoints`, acceso a información de la AC |
 | **Firma de la AC** | Lo que hace confiable a todo lo anterior |
 
-> **[DATO CLAVE EXAMEN]** El nombre del sitio ya **no se valida por el campo `CN`** del sujeto, sino por la extensión **`subjectAltName` (SAN)**, que es la única que miran los navegadores modernos y la que permite **múltiples nombres** en un solo certificado. Tipos según cobertura: **de un solo nombre**, **comodín** (*wildcard*, `*.madrid.es`, que cubre **un solo nivel** de subdominio) y **multidominio (SAN/UCC)**.
+> **[DATO CLAVE]** El nombre del sitio ya **no se valida por el campo `CN`** del sujeto, sino por la extensión **`subjectAltName` (SAN)**, que es la única que miran los navegadores modernos y la que permite **múltiples nombres** en un solo certificado. Tipos según cobertura: **de un solo nombre**, **comodín** (*wildcard*, `*.madrid.es`, que cubre **un solo nivel** de subdominio) y **multidominio (SAN/UCC)**.
 
-**Tipos por nivel de validación**, que se pregunta:
+**Tipos por nivel de validación**:
 
 | Tipo | Qué comprueba la AC | Uso |
 |---|---|---|
@@ -838,11 +838,11 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 | **OCSP** (**RFC 6960**) | Consulta **en línea** del estado de **un** certificado: `good`, `revoked`, `unknown` | Añade latencia, exige disponibilidad del respondedor y **filtra a la AC qué sitios visita cada usuario** (problema de **privacidad**) |
 | **OCSP stapling** | **El propio servidor** adjunta en el saludo una respuesta OCSP reciente y firmada | Resuelve latencia y privacidad; requiere configurarlo |
 
-> **[DATO CLAVE EXAMEN]** **La revocación está siendo sustituida por la caducidad rápida**, y es la tendencia más importante del epígrafe. Dos hechos verificados: (1) **Let's Encrypt apagó su servicio OCSP el 6 de agosto de 2025** por motivos de privacidad, y emite ya certificados **de seis días**; (2) el **CA/Browser Forum** aprobó en abril de 2025 el acuerdo **SC-081v3**, que reduce la vida máxima de un certificado TLS público en tres escalones: **200 días desde el 15 de marzo de 2026**, **100 días desde el 15 de marzo de 2027** y **47 días desde el 15 de marzo de 2029**. La lógica es que **un certificado que dura poco no necesita revocarse**: caduca antes de que la revocación llegue a propagarse.
+> **[DATO CLAVE]** **La revocación está siendo sustituida por la caducidad rápida**, y es la tendencia más importante del epígrafe. Dos hechos verificados: (1) **Let's Encrypt apagó su servicio OCSP el 6 de agosto de 2025** por motivos de privacidad, y emite ya certificados **de seis días**; (2) el **CA/Browser Forum** aprobó en abril de 2025 el acuerdo **SC-081v3**, que reduce la vida máxima de un certificado TLS público en tres escalones: **200 días desde el 15 de marzo de 2026**, **100 días desde el 15 de marzo de 2027** y **47 días desde el 15 de marzo de 2029**. La lógica es que **un certificado que dura poco no necesita revocarse**: caduca antes de que la revocación llegue a propagarse.
 
 > **[EJERCICIO RESUELTO]** **Enunciado**: el Ayuntamiento renueva hoy, agosto de 2026, el certificado de `sede.madrid.es` y el proveedor ofrece «un año de validez». ¿Es posible? ¿Qué consecuencia organizativa tiene la respuesta? **Solución**: **no es posible** para un certificado TLS público. Desde el **15 de marzo de 2026** el máximo admitido por el CA/Browser Forum es de **200 días**, y los navegadores rechazan los que excedan ese límite, de modo que la oferta o es errónea o se refiere a un certificado que no es de servidor web público. **Consecuencia organizativa, que es lo que de verdad se evalúa**: con 200 días hoy, 100 en 2027 y 47 en 2029, **la renovación manual anotada en la agenda deja de ser viable**. Hay que implantar **renovación automatizada** (por ejemplo con el protocolo **ACME**), **inventario de certificados** con responsable asignado y **alertas** con antelación suficiente. La caducidad de un certificado es una causa banal y muy frecuente de caída de servicios públicos, y desde 2029 el margen de error será de mes y medio.
 
-> **[EJEMPLO AYTO MADRID]** En una sede electrónica conviven **dos usos distintos de certificado** que no hay que mezclar: el **certificado de sede electrónica** —que identifica al sitio ante la ciudadanía y da soporte al canal seguro, art. 38 de la Ley 40/2015— y los **certificados de las personas usuarias** (DNI electrónico, certificado de la FNMT, Cl@ve) con los que la ciudadanía **se identifica y firma**. El primero opera en la **capa TLS**; los segundos, en la capa de **aplicación** —salvo que se configure autenticación TLS mutua—. Confundirlos es un error conceptual frecuente en los casos prácticos.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** En una sede electrónica conviven **dos usos distintos de certificado** que no hay que mezclar: el **certificado de sede electrónica** —que identifica al sitio ante la ciudadanía y da soporte al canal seguro, art. 38 de la Ley 40/2015— y los **certificados de las personas usuarias** (DNI electrónico, certificado de la FNMT, Cl@ve) con los que la ciudadanía **se identifica y firma**. El primero opera en la **capa TLS**; los segundos, en la capa de **aplicación** —salvo que se configure autenticación TLS mutua—. Confundirlos es un error conceptual frecuente en los casos prácticos.
 
 ### 5.2. Protocolo HTTPS
 
@@ -850,9 +850,9 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 
 **Qué es exactamente HTTPS.** **No es un protocolo distinto de HTTP.** Es **HTTP transportado dentro de una sesión TLS**, con el esquema de URL `https://` y el puerto **443** por defecto. La semántica —métodos, códigos, cabeceras— es **idéntica**. Históricamente se describía en el **RFC 2818**, hoy **obsoleto**: la definición vigente está integrada en el **RFC 9110**, §4.2.2.
 
-> **[DATO CLAVE EXAMEN]** El **orden de las capas** es materia de examen: **TCP → TLS → HTTP**. Primero se establece la conexión **TCP** (saludo en tres pasos), después el **saludo TLS**, y solo entonces viaja el **mensaje HTTP**, ya cifrado. En **HTTP/3** el esquema cambia: **UDP → QUIC (con TLS 1.3 integrado) → HTTP/3**, y el saludo es **uno solo**.
+> **[DATO CLAVE]** El **orden de las capas** es clave: **TCP → TLS → HTTP**. Primero se establece la conexión **TCP** (saludo en tres pasos), después el **saludo TLS**, y solo entonces viaja el **mensaje HTTP**, ya cifrado. En **HTTP/3** el esquema cambia: **UDP → QUIC (con TLS 1.3 integrado) → HTTP/3**, y el saludo es **uno solo**.
 
-**Qué protege y qué no.** Esta distinción es la pregunta conceptual del epígrafe:
+**Qué protege y qué no.** Esta distinción es la idea conceptual del epígrafe:
 
 | Sí protege | No protege ni oculta |
 |---|---|
@@ -862,7 +862,7 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 | La **integridad**: no se puede alterar el contenido en tránsito | Las **consultas DNS** previas, si no se usa DoT o DoH |
 | La **identidad del servidor** mediante certificado | Nada de lo que ocurra **en los extremos** |
 
-> **[DATO CLAVE EXAMEN]** **SNI** (*Server Name Indication*) es la extensión del saludo TLS con la que el cliente dice **a qué nombre de sitio quiere conectarse**, y es imprescindible para alojar **varios sitios HTTPS en una misma dirección IP**. Su problema es que **viaja en claro** —tiene que hacerlo: el servidor aún no sabe qué certificado presentar—, de modo que un observador de la red **sabe qué sitio se visita aunque no vea el contenido**. La solución en despliegue es **ECH** (*Encrypted Client Hello*), que cifra esa parte del saludo. Es el equivalente exacto, en la Web, del problema de privacidad que DoH resuelve en el DNS.
+> **[DATO CLAVE]** **SNI** (*Server Name Indication*) es la extensión del saludo TLS con la que el cliente dice **a qué nombre de sitio quiere conectarse**, y es imprescindible para alojar **varios sitios HTTPS en una misma dirección IP**. Su problema es que **viaja en claro** —tiene que hacerlo: el servidor aún no sabe qué certificado presentar—, de modo que un observador de la red **sabe qué sitio se visita aunque no vea el contenido**. La solución en despliegue es **ECH** (*Encrypted Client Hello*), que cifra esa parte del saludo. Es el equivalente exacto, en la Web, del problema de privacidad que DoH resuelve en el DNS.
 
 **Mecanismos de refuerzo.** Sobre HTTPS se han construido varias defensas complementarias:
 
@@ -899,7 +899,7 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 | **RD 1112/2018** | **Accesibilidad** de sitios web y aplicaciones móviles del sector público: **UNE-EN 301 549** y **declaración de accesibilidad** obligatoria |
 | **Directiva NIS2** (UE) 2022/2555 | Refuerzo de la ciberseguridad y de la notificación de incidentes; la Administración local queda afectada en los términos de su transposición |
 
-> **[DATO CLAVE EXAMEN]** **La sede electrónica** se define en el **art. 38 de la Ley 40/2015** como la dirección electrónica **disponible a través de redes de telecomunicaciones** cuya **titularidad corresponde a una Administración Pública**, o a uno o varios organismos públicos en el ejercicio de sus competencias. Tres notas que se preguntan: (1) la **titularidad, la gestión y la administración** corresponden a la Administración —una sede **no puede** ser un sitio de un tercero—; (2) sujeta a los principios de **transparencia, publicidad, responsabilidad, calidad, seguridad, disponibilidad, accesibilidad, neutralidad e interoperabilidad**; y (3) sus comunicaciones deben realizarse **mediante sistemas de firma electrónica basados en certificados de sede electrónica** que garanticen la identificación y la comunicación segura. **La sede es responsabilidad de la Administración titular; el portal de internet (art. 39) no tiene ese régimen reforzado.**
+> **[DATO CLAVE]** **La sede electrónica** se define en el **art. 38 de la Ley 40/2015** como la dirección electrónica **disponible a través de redes de telecomunicaciones** cuya **titularidad corresponde a una Administración Pública**, o a uno o varios organismos públicos en el ejercicio de sus competencias. Tres notas: (1) la **titularidad, la gestión y la administración** corresponden a la Administración —una sede **no puede** ser un sitio de un tercero—; (2) sujeta a los principios de **transparencia, publicidad, responsabilidad, calidad, seguridad, disponibilidad, accesibilidad, neutralidad e interoperabilidad**; y (3) sus comunicaciones deben realizarse **mediante sistemas de firma electrónica basados en certificados de sede electrónica** que garanticen la identificación y la comunicación segura. **La sede es responsabilidad de la Administración titular; el portal de internet (art. 39) no tiene ese régimen reforzado.**
 
 **Las medidas del ENS que se aplican a un servicio web**, verificadas contra el anexo II del RD 311/2022:
 
@@ -917,9 +917,9 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 | **`op.acc.5`** / **`op.acc.6`** | Mecanismo de autenticación de **usuarios externos** / **de la organización** | Categoría | Robustez creciente del mecanismo con el nivel; limitación de intentos, doble factor en los niveles altos |
 | **`mp.info.3`** / **`mp.info.4`** | **Firma electrónica** / **Sellos de tiempo** | **I A** / **T** | La firma es exigible desde BÁSICA; el **sellado de tiempo, solo en nivel ALTO** |
 
-> **[DATO CLAVE EXAMEN]** La medida **`mp.s.2` es la que traduce este tema en obligación jurídica**: exige que un servicio web público se **audite** —de **caja negra** (R1) o de **caja blanca** (R2)— **ya en la categoría BÁSICA**, y las dos, más la prevención de manipulación de programas y dispositivos (R3), en la **ALTA**. Y hay una regla del ENS que conviene retener: la **categoría del sistema** la determina la **dimensión más alta**, mientras que las medidas marcadas «Categoría» se aplican **por categoría** y las marcadas con una letra (C, I, T, A, D) **por nivel de esa dimensión**.
+> **[DATO CLAVE]** La medida **`mp.s.2` es la que traduce este tema en obligación jurídica**: exige que un servicio web público se **audite** —de **caja negra** (R1) o de **caja blanca** (R2)— **ya en la categoría BÁSICA**, y las dos, más la prevención de manipulación de programas y dispositivos (R3), en la **ALTA**. Y hay una regla del ENS que conviene retener: la **categoría del sistema** la determina la **dimensión más alta**, mientras que las medidas marcadas «Categoría» se aplican **por categoría** y las marcadas con una letra (C, I, T, A, D) **por nivel de esa dimensión**.
 
-> **[REFERENCIA CRUZADA]** Los **principios básicos y requisitos mínimos** del ENS y del ENI se estudian en el **Tema 39**; los **conceptos de seguridad, la criptografía y la firma electrónica**, en el **Tema 32**; la **seguridad perimetral y las VPN**, en el **Tema 36**; y la **accesibilidad y la usabilidad**, en el **Tema 25**.
+> **[RELACIÓN CON OTROS TEMAS]** Los **principios básicos y requisitos mínimos** del ENS y del ENI se estudian en el **Tema 39**; los **conceptos de seguridad, la criptografía y la firma electrónica**, en el **Tema 32**; la **seguridad perimetral y las VPN**, en el **Tema 36**; y la **accesibilidad y la usabilidad**, en el **Tema 25**.
 
 **Cómo se traduce todo esto en la configuración real de una sede electrónica.** El resumen operativo del tema, y el guion de cualquier caso práctico:
 
@@ -934,7 +934,7 @@ En **TLS 1.3** la misma suite se escribiría simplemente **`TLS_AES_128_GCM_SHA2
 9. **Accesibilidad** conforme al **RD 1112/2018** y **declaración de accesibilidad** publicada.
 10. **Protección de datos**: información en capas, base jurídica del tratamiento y medidas del **art. 32 del RGPD** coordinadas con las del ENS.
 
-> **[EJEMPLO AYTO MADRID]** Un detalle que suele pasarse por alto y que un técnico municipal debe conocer: cuando la sede se publica tras un **proxy inverso** o una **red de distribución de contenidos**, el TLS **termina en el intermediario**, no en el servidor de aplicación. Eso tiene tres consecuencias: (1) la **clave privada** del certificado vive en el intermediario, y su custodia entra en el alcance de `op.exp.10`; (2) el tramo interno entre el proxy y la aplicación **también debe ir cifrado** si sale del dominio propio, por exigencia de `mp.com.2`; y (3) la dirección IP que ve la aplicación es la del proxy, de modo que el **registro de la IP real del ciudadano** depende de que se propague correctamente la cabecera correspondiente. Si además el intermediario es un **servicio en la nube**, entra en juego el **art. 2.3 del ENS**, que extiende su aplicación al **proveedor privado** que presta servicios al sector público.
+> **[EJEMPLO DE APLICACIÓN EN EL AYTO]** Un detalle que suele pasarse por alto y que un técnico municipal debe conocer: cuando la sede se publica tras un **proxy inverso** o una **red de distribución de contenidos**, el TLS **termina en el intermediario**, no en el servidor de aplicación. Eso tiene tres consecuencias: (1) la **clave privada** del certificado vive en el intermediario, y su custodia entra en el alcance de `op.exp.10`; (2) el tramo interno entre el proxy y la aplicación **también debe ir cifrado** si sale del dominio propio, por exigencia de `mp.com.2`; y (3) la dirección IP que ve la aplicación es la del proxy, de modo que el **registro de la IP real del ciudadano** depende de que se propague correctamente la cabecera correspondiente. Si además el intermediario es un **servicio en la nube**, entra en juego el **art. 2.3 del ENS**, que extiende su aplicación al **proveedor privado** que presta servicios al sector público.
 
 ---
 

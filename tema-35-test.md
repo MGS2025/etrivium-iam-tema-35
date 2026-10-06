@@ -826,7 +826,7 @@ C) Cache-Control: max-age=0, porque equivale a no guardar nada
 
 <details><summary>Respuesta</summary>
 
-**Correcta: B) Cache-Control: no-store, junto con private, porque prohíbe almacenar la respuesta en cualquier caché** La trampa está en `no-cache`, que **sí permite almacenar** la respuesta y solo obliga a **revalidarla** antes de reutilizarla. Es una distinción que se pregunta con frecuencia.
+**Correcta: B) Cache-Control: no-store, junto con private, porque prohíbe almacenar la respuesta en cualquier caché** La trampa está en `no-cache`, que **sí permite almacenar** la respuesta y solo obliga a **revalidarla** antes de reutilizarla.
 
 *Referencia: §4.2.2 [RFC9111]*
 </details>

@@ -35,10 +35,10 @@ def inline(t):
 
 
 CALLOUTS = {
-    "DATO CLAVE EXAMEN": "dato",
+    "DATO CLAVE": "dato",
     "EJERCICIO RESUELTO": "ejercicio",
-    "EJEMPLO AYTO MADRID": "ayto",
-    "REFERENCIA CRUZADA": "ref",
+    "EJEMPLO DE APLICACIÓN EN EL AYTO": "ayto",
+    "RELACIÓN CON OTROS TEMAS": "ref",
 }
 
 
@@ -296,7 +296,7 @@ def build():
 <tr><td>Casos prácticos Ayto Madrid</td><td>3 casos (publicación de un trámite nuevo en la sede; diagnóstico por capas de una incidencia en una oficina de distrito; correo suplantado y envío de un fichero con datos personales)</td></tr>
 <tr><td>Fuentes Tier 1</td><td>60 referencias canónicas (RFC del IETF, ENS, CCN-STIC, Leyes 39 y 40/2015, RGPD, ENI, W3C, IEEE, NIST)</td></tr>
 </tbody></table>
-<div class="callout ref"><span class="kicker">Cómo estudiar</span>Este tema tiene <strong>dos naturalezas mezcladas</strong> y se aprueba con dos técnicas distintas. Una parte es <strong>narrativa</strong> —el origen, la evolución y la gobernanza (§1)— y de ella se preguntan <strong>fechas, siglas y competencias</strong>: se estudia con la línea del tiempo del <strong>D1</strong> y el mapa de organismos del <strong>D2</strong>. La otra es <strong>técnica y muy exacta</strong> (§2 a §5), y de ella se pregunta el <strong>dato literal</strong>: puertos, versiones, números de RFC y códigos de estado. Para esa parte, la tabla de <strong>puertos</strong> que abre §3 y los diagramas <strong>D14</strong> (mensaje HTTP), <strong>D15</strong> (versiones) y <strong>D17</strong> (TLS) son el material más rentable del tema. Antes de empezar, lee la advertencia de frontera con el <strong>Tema 34</strong> que abre el Contenido, y termina siempre por el bloque final, <strong>«los siete datos que no se pueden fallar»</strong>.</div>"""
+<div class="callout ref"><span class="kicker">Cómo estudiar</span>Este tema tiene <strong>dos naturalezas mezcladas</strong> y se aprueba con dos técnicas distintas. Una parte es <strong>narrativa</strong> —el origen, la evolución y la gobernanza (§1)— y de ella hay que retener <strong>fechas, siglas y competencias</strong>: se estudia con la línea del tiempo del <strong>D1</strong> y el mapa de organismos del <strong>D2</strong>. La otra es <strong>técnica y muy exacta</strong> (§2 a §5), y de ella hay que retener el <strong>dato literal</strong>: puertos, versiones, números de RFC y códigos de estado. Para esa parte, la tabla de <strong>puertos</strong> que abre §3 y los diagramas <strong>D14</strong> (mensaje HTTP), <strong>D15</strong> (versiones) y <strong>D17</strong> (TLS) son el material más rentable del tema. Antes de empezar, lee la advertencia de frontera con el <strong>Tema 34</strong> que abre el Contenido, y termina siempre por el bloque final, <strong>«los siete datos que no se pueden fallar»</strong>.</div>"""
 
     nav = (
         '<nav class="tabs">'

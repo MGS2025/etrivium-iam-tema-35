@@ -19,15 +19,15 @@ El enunciado oficial (BOAM 10.032, tema 35) enumera **cuatro materias**. Corresp
 | **Protocolos HTTP, HTTPS y SSL/TLS** | §4 y §5 | ✅ Completo |
 | *(Añadido por el esqueleto de partida)* Seguridad y normativa en la Administración Pública | §6 | ✅ Completo |
 
-El **esqueleto de partida** (`Test_Prompting/temas agosto/35.md`) se ha seguido **literalmente**: sus **seis bloques de primer nivel**, sus **doce subapartados** y sus **veintiún epígrafes** se corresponden uno a uno con la numeración `N`, `N.M` y `N.M.K` del contenido. **Es el primer esqueleto de la serie de agosto que encaja sin ajustes en los tres niveles de numeración**, a diferencia de lo ocurrido en los Temas 27 y 30.
+El **esqueleto de partida** se ha seguido **literalmente**: sus **seis bloques de primer nivel**, sus **doce subapartados** y sus **veintiún epígrafes** se corresponden uno a uno con la numeración `N`, `N.M` y `N.M.K` del contenido. **Es el primer esqueleto de la serie de agosto que encaja sin ajustes en los tres niveles de numeración**, a diferencia de lo ocurrido en los Temas 27 y 30.
 
 ## 2. Contenido teórico
 
 - **6 secciones · 12 subsecciones · 21 epígrafes numerados** (numeración de tres niveles, coherente con el resto de la serie técnica).
 - **≈ 18.600 palabras** medidas con `wc -w`, en la parte alta del rango de la serie (T31 ≈ 17.600, T28 ≈ 18.900, T29 ≈ 21.200, T32 ≈ 25.000).
-- **4 tipos de callout**: `[DATO CLAVE EXAMEN]`, `[EJERCICIO RESUELTO]`, `[EJEMPLO AYTO MADRID]` y `[REFERENCIA CRUZADA]`.
+- **4 tipos de callout**: `[DATO CLAVE]`, `[EJERCICIO RESUELTO]`, `[EJEMPLO DE APLICACIÓN EN EL AYTO]` y `[RELACIÓN CON OTROS TEMAS]`.
 - **Caso de referencia transversal**: la sede electrónica municipal `sede.madrid.es`, que atraviesa las seis secciones y enlaza con los tres casos prácticos.
-- **Sin fragmentos de código**, como en T26, T28, T29, T30, T31 y T32. Decisión deliberada: el enunciado no menciona ningún lenguaje y lo memorizable son **puertos, números de RFC, códigos de estado, fechas y siglas**, concentrados en tablas y en los diagramas D4, D8, D14 y D17. Sí se incluyen **tres bloques literales no ejecutables** —la descomposición de una URL, un mensaje HTTP de petición y otro de respuesta, y una suite de cifrado desmenuzada— porque son objeto directo de pregunta.
+- **Sin fragmentos de código**, como en T26, T28, T29, T30, T31 y T32. Decisión deliberada: el enunciado no menciona ningún lenguaje y lo memorizable son **puertos, números de RFC, códigos de estado, fechas y siglas**, concentrados en tablas y en los diagramas D4, D8, D14 y D17. Sí se incluyen **tres bloques literales no ejecutables** —la descomposición de una URL, un mensaje HTTP de petición y otro de respuesta, y una suite de cifrado desmenuzada— porque son objeto directo de estudio.
 - Cierre con un bloque de **«los siete datos que no se pueden fallar»**, no numerado, a modo de resumen memorístico.
 
 ## 3. Fuentes
